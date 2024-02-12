@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from "react";
  
-import { StoreModal } from "@/components/modal/login-modal";
+import { LoginModal } from "@/components/modal/login-modal";
+import { RegisterModal } from "@/components/modal/register-modal";
 // all this done is prevent the hydration
 export const ModalProvider = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -17,7 +18,8 @@ export const ModalProvider = () => {
 
   return (
     <>
-      <StoreModal />
+      <LoginModal />
+      <RegisterModal/>
     </>
   )
 }

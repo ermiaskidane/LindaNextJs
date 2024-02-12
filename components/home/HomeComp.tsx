@@ -1,3 +1,4 @@
+
 const HomeComp = () => {
   return (
     <div className="main__shop">

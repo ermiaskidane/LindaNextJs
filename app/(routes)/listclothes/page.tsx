@@ -41,8 +41,9 @@ const ListClothes = () => {
       
       <Separator className="my-4 h-[1px] bg-neutral-300" />
       <div className="px-4">
-        <div className="newProducts--title">
+        <div className="flex justify-between">
           <h3 className="font-medium text-l">Products Found (200)</h3>
+          <div>Add Product</div>
         </div>
         <Card Images={Image1} paddingBottom/>
       </div>

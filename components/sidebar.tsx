@@ -4,7 +4,7 @@ interface ModalProps {
   openHandler: () =>  void;
 }
 
-const Modal = ({openHandler}: ModalProps) => {
+const SideBar = ({openHandler}: ModalProps) => {
   return ( 
   <label className="NavMobile__button">
     <ul 
@@ -87,4 +87,4 @@ const Modal = ({openHandler}: ModalProps) => {
  );
 }
  
-export default Modal;
+export default SideBar;

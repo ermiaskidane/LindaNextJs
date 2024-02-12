@@ -1,16 +1,24 @@
 "use client"
 
 import { useState } from "react";
-import Modal from "./modal";
+import SideBar from "./sidebar";
 import Backdrop from "./backdrop";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { ShoppingBag, User } from "lucide-react";
-import { useLoginModal } from "@/hooks/use-login-modal";
+import useLoginModal from "@/hooks/use-login-modal";
+// import { UserButton, useAuth } from "@clerk/nextjs";
+import { useCurrentUser } from "@/hooks/use-current-user";
+import { UserButton } from "./auth/user-button";
+import { useRouter } from "next/navigation";
 
 const Navigation = () => {
+  // const { userId } = useAuth();
   const [open, setOpen] = useState(false)
   const [show, setShow] = useState(false)
+  // we can call this cz the auth is from next-auth/react for client component
+  const user = useCurrentUser();
+  const router = useRouter()
 
   const storeModal = useLoginModal();
 
@@ -23,8 +31,12 @@ const Navigation = () => {
       <div className="navigation__logo w-full flex justify-between items-center md:justify-normal md:w-fit">
         <h2 className="grow">Linda Shop</h2>
 
-        <div className="cursor-pointer md:hidden" onClick={storeModal.onOpen}>
-          <User />
+        <div className="cursor-pointer md:hidden" >
+        {user ? (
+            <UserButton/>
+          ): (
+            <User onClick={storeModal.onOpen}/>
+          )}
         </div>
       </div>
 
@@ -48,14 +60,20 @@ const Navigation = () => {
       <div className="navigation__cart">
         {/* navigation__cart--items */}
         <div className="flex justify-between gap-2">
-          <div className="cursor-pointer hidden md:block" onClick={storeModal.onOpen}>
-            <User />
+          <div className="cursor-pointer hidden md:block"  >
+          {user ? (
+            <UserButton/>
+          ): (
+            <User onClick={storeModal.onOpen} />
+            // <User onClick={() => router.push('/authmy-auto/login')}/>
+          )}
           </div>
 
-          <div className="svg--bag cursor-pointer">
-            <svg>
+          <div className="svg--bag cursor-pointer self-center">
+          <ShoppingBag />
+            {/* <svg>
               <use xlinkHref={`Sprite.svg#icon-shopping-bag`} />
-            </svg>
+            </svg> */}
           </div>
           {/* <div className="svg--bag">
             <svg>
@@ -160,7 +178,7 @@ const Navigation = () => {
         {/* {modal} */}
         {open && (
               <>
-                <Modal openHandler={() => setOpen((prevOpen) => !prevOpen)} />
+                <SideBar openHandler={() => setOpen((prevOpen) => !prevOpen)} />
                 <Backdrop open={() => setOpen((prevOpen) => !prevOpen)} />
               </>
         )}
@@ -180,11 +198,12 @@ const Navigation = () => {
           </div>
         </div>
         <div className="Nav__header--bag">
-          <svg 
+        <ShoppingBag onClick={() => setShow((prevShow) => !prevShow)}/>
+          {/* <svg 
           onClick={() => setShow((prevShow) => !prevShow)}
           >
             <use xlinkHref={`Sprite.svg#icon-shopping-bag`} />
-          </svg>
+          </svg> */}
           {/* {show} */}
           {show && (
             <div className="Nav__header--trolley">
