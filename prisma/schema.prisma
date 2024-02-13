@@ -85,11 +85,13 @@ model Color {
 }
 
 model Product {
-  id         String  @id @default(auto()) @map("_id") @db.ObjectId
-  name       String
-  price      Float
-  isFeatured Boolean @default(false)
-  isArchived Boolean @default(false)
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  price       Float
+  description String
+  qauntity    Int
+  isFeatured  Boolean @default(false)
+  isArchived  Boolean @default(false)
 
   images Image[] // Relation to Image model
 

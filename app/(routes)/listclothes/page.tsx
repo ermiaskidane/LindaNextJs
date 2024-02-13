@@ -8,6 +8,9 @@ import { DropdownMenuCheckboxItemProps } from "@radix-ui/react-dropdown-menu";
 import { ArrowUpDown, ListFilter, SlidersHorizontal } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
+import ProductHeading from "./components/ProductHeading";
+import { getSession } from "next-auth/react";
+import { auth } from "@/auth";
 
 const Image1 = [
   "/images/fashion-1.jpg",
@@ -24,7 +27,11 @@ const Image1 = [
   "/images/fashion-4.jpg"
 ]
 
-const ListClothes = () => {
+const ListClothes = async() => {
+
+  const session = await auth()
+  const AdminUser = session?.user
+  // console.log("session", session)
   
   return ( 
     <div className="flex flex-col">
@@ -41,10 +48,8 @@ const ListClothes = () => {
       
       <Separator className="my-4 h-[1px] bg-neutral-300" />
       <div className="px-4">
-        <div className="flex justify-between">
-          <h3 className="font-medium text-l">Products Found (200)</h3>
-          <div>Add Product</div>
-        </div>
+          {/* <div>Add Product</div> */}
+          <ProductHeading admin={AdminUser}/>
         <Card Images={Image1} paddingBottom/>
       </div>
     </div>
