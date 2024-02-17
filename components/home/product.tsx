@@ -1,7 +1,14 @@
+import { db } from "@/lib/db";
 import Blog from "../blog";
 import Menu from "../menu";
 
-const Product = () => {
+const Product = async () => {
+
+  const products = await db.product.findMany({
+    include: {
+      images: true
+    }
+  });
   return (
     <div className="main__product">
       <div className="main__product--left">
@@ -69,7 +76,7 @@ const Product = () => {
         </div>
         {/*##### end of discount box ########*/}
       </div>
-      <Menu />
+      <Menu  products={products}/>
       {/* ###### Blog Post ###### */}
       <Blog />
     </div>

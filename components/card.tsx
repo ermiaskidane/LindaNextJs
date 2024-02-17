@@ -1,24 +1,36 @@
+"use client"
+
 import { cn } from "@/lib/utils";
+import { Image, Product, User } from "@prisma/client";
+import { Edit } from "lucide-react";
+import { Session } from "next-auth";
+import { useRouter } from "next/navigation";
+
 
 interface CardProps {
-  Images: string[]
+  products: (Product & { images: Image[] })[]
+  admin?: Session["user"] & { role?: "ADMIN" | "USER" }; 
+  // Images: string[]
   paddingBottom?: boolean
 }
 
-// type ImageKeys = 'Fashion12' | 'Fashion5' | 'Fashion8' | 'Fashion4';
+const Card: React.FC<CardProps>  = ({products, admin, paddingBottom}) => {
+  const router = useRouter()
 
-// interface CardProps {
-//   Images: Record<ImageKeys, string>;
-// }
-const Card: React.FC<CardProps>  = ({Images, paddingBottom}) => {
+  console.log("dfdsfs", products)
   return ( 
     <div className="menu__newProduct--options">
       <ul className="newProduct__options--lists newProducts--grid">
-        {Images.map((img, i) => (
-          <li className={cn("options__lists--item", paddingBottom && "pb-8")} key={i}>
+        {products.map((product, i) => (
+          <li className={cn("options__lists--item", paddingBottom && "pb-8")} key={product.id}>
           <div className="options__list--wrapper">
-            <figure className="options__lists--img">
-              <img src={img} alt="item" />
+            <figure className="options__lists--img relative">
+              {admin?.role === "ADMIN" && (
+              <div className="absolute top-1 right-2 z-50 bg-white p-2 rounded-full" onClick={() => router.push(`/listclothes/${product.id}`)}>
+                <Edit className=" text-[#0084c1fb] rounded hover:scale-110" />
+              </div>
+             )} 
+              <img src={product.images[0].url!} alt="item" />
             </figure>
             <div className="options__lists--info">
               <div className="options__lists--grid">

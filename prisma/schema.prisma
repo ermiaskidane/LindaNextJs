@@ -89,7 +89,7 @@ model Product {
   name        String
   price       Float
   description String
-  qauntity    Int
+  quantity    Int
   isFeatured  Boolean @default(false)
   isArchived  Boolean @default(false)
 
@@ -122,7 +122,7 @@ model Image {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   productId String   @db.ObjectId // Foreign Key to Product
   product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
-  url       String // URL of the image
+  url       String? // URL of the image
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 

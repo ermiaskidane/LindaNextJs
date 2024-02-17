@@ -9,6 +9,7 @@ import Head from "next/head";
 import { ModalProvider } from "@/providers/modal-provider";
 import { SessionProvider } from "next-auth/react";
 import { auth } from '@/auth'
+import { ToasterProvider } from "@/providers/toast-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,6 +31,7 @@ export default async function RootLayout({
         <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
         <body className={inter.className}>
           <div id="backdrop-hook"></div>
+          <ToasterProvider/>
           <ModalProvider/>
             {children}
         </body>

@@ -1,3 +1,4 @@
+import { Image, Product } from "@prisma/client";
 import Card from "./card";
 
 const Image1 = [
@@ -20,7 +21,11 @@ const Image3 = [
   "/images/fashion-4.jpg"
 ]
 
-const Menu = () => {
+interface MenuProps {
+  products: (Product & { images: Image[] })[]
+}
+
+const Menu = async({products}: MenuProps) => {
   return ( 
     <div className="menu">
       <div className="menu__content">
@@ -45,7 +50,7 @@ const Menu = () => {
             </ul>
           </div>
           {/*##### about the menu__newProduct--options ######*/}
-          <Card Images={Image1}/>
+          <Card products={products.slice(0, 4)}/>
           {/*##### about the menu__newProduct--options ######*/}
         </div>
         <div className="menu__content--bestSellers">
@@ -67,7 +72,7 @@ const Menu = () => {
               </span>
             </div>
           </div>
-          <Card Images={Image2}/>
+          <Card products={products.slice(4, 8)}/>
         </div>
         <div className="menu__content--featuredProducts">
           <div className="menu__featuredProducts--title">
@@ -88,7 +93,7 @@ const Menu = () => {
               </span>
             </div>
           </div>
-          <Card Images={Image3}/>
+          <Card products={products.slice(8, 12)}/>
         </div>
       </div>
     </div>

@@ -11,6 +11,7 @@ import { useState } from "react";
 import ProductHeading from "./components/ProductHeading";
 import { getSession } from "next-auth/react";
 import { auth } from "@/auth";
+import { db } from "@/lib/db";
 
 const Image1 = [
   "/images/fashion-1.jpg",
@@ -31,7 +32,16 @@ const ListClothes = async() => {
 
   const session = await auth()
   const AdminUser = session?.user
-  // console.log("session", session)
+
+  console.log("dksjbsf", AdminUser)
+
+  const products = await db.product.findMany({
+    include: {
+      images: true
+    }
+  });
+
+  console.log("products", products)
   
   return ( 
     <div className="flex flex-col">
@@ -48,9 +58,9 @@ const ListClothes = async() => {
       
       <Separator className="my-4 h-[1px] bg-neutral-300" />
       <div className="px-4">
-          {/* <div>Add Product</div> */}
-          <ProductHeading admin={AdminUser}/>
-        <Card Images={Image1} paddingBottom/>
+        <ProductHeading admin={AdminUser}/>
+        {/* <Card Images={Image1} paddingBottom/> */}
+        <Card products={products} admin={AdminUser} paddingBottom/>
       </div>
     </div>
   );
