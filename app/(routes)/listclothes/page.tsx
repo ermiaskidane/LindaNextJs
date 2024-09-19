@@ -41,7 +41,7 @@ const ListClothes = async() => {
     }
   });
 
-  console.log("products", products)
+  // console.log("products", products)
   
   return ( 
     <div className="flex flex-col">

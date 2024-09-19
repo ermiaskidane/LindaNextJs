@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { Image, Product, User } from "@prisma/client";
 import { Edit } from "lucide-react";
 import { Session } from "next-auth";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 
@@ -24,14 +25,16 @@ const Card: React.FC<CardProps>  = ({products, admin, paddingBottom}) => {
         {products.map((product, i) => (
           <li className={cn("options__lists--item", paddingBottom && "pb-8")} key={product.id}>
           <div className="options__list--wrapper">
-            <figure className="options__lists--img relative">
-              {admin?.role === "ADMIN" && (
-              <div className="absolute top-1 right-2 z-50 bg-white p-2 rounded-full" onClick={() => router.push(`/listclothes/${product.id}`)}>
-                <Edit className=" text-[#0084c1fb] rounded hover:scale-110" />
-              </div>
-             )} 
-              <img src={product.images[0].url!} alt="item" />
-            </figure>
+            <Link href={`/cloth/${product.id}`}>
+              <figure className="options__lists--img relative">
+                {admin?.role === "ADMIN" && (
+                <div className="absolute top-1 right-2 z-50 bg-white p-2 rounded-full" onClick={() => router.push(`/listclothes/${product.id}`)}>
+                  <Edit className=" text-[#0084c1fb] rounded hover:scale-110" />
+                </div>
+              )} 
+                <img src={product.images[0].url!} alt="item" />
+              </figure>
+            </Link>
             <div className="options__lists--info">
               <div className="options__lists--grid">
                 <div className="icon__option icon--displace">
