@@ -1,4 +1,4 @@
-import { auth } from "@/auth";
+// import { auth } from "@/auth";
 import { db } from "@/lib/db";
 import { NextResponse } from "next/server";
 
@@ -7,9 +7,9 @@ export async function PATCH(
   { params }: { params: { clothesId: string, } }
 ) {
   try {
-    const session = await auth();
+    // const session = await auth();
 
-    console.log("session", session)
+    // console.log("session", session)
 
     const body = await req.json();
 
@@ -17,9 +17,9 @@ export async function PATCH(
 
     console.log("product", body)
 
-    if (!session) {
-      return new NextResponse("Unauthenticated", { status: 403 });
-    }
+    // if (!session) {
+    //   return new NextResponse("Unauthenticated", { status: 403 });
+    // }
 
     if (!params.clothesId) {
       return new NextResponse("Product id is required", { status: 400 });

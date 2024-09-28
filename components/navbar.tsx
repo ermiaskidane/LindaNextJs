@@ -7,9 +7,14 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { ShoppingBag, User } from "lucide-react";
 import useLoginModal from "@/hooks/use-login-modal";
-// import { UserButton, useAuth } from "@clerk/nextjs";
-import { useCurrentUser } from "@/hooks/use-current-user";
-import { UserButton } from "./auth/user-button";
+import {
+  SignInButton,
+  SignedIn,
+  SignedOut,
+  UserButton 
+} from '@clerk/nextjs'
+// import { useCurrentUser } from "@/hooks/use-current-user";
+// import { UserButton } from "./auth/user-button";
 import { useRouter } from "next/navigation";
 
 const Navigation = () => {
@@ -17,7 +22,7 @@ const Navigation = () => {
   const [open, setOpen] = useState(false)
   const [show, setShow] = useState(false)
   // we can call this cz the auth is from next-auth/react for client component
-  const user = useCurrentUser();
+  // const user = useCurrentUser();
   const router = useRouter()
 
   const storeModal = useLoginModal();
@@ -32,11 +37,19 @@ const Navigation = () => {
         <h2 className="grow">Linda Shop</h2>
 
         <div className="cursor-pointer md:hidden" >
-        {user ? (
+        <SignedOut>
+            <SignInButton>
+              <button className="font-medium hover:text-primary block transition dark:hover:text-white  sm:text-base">sign in</button>
+            </SignInButton>
+          </SignedOut>
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
+        {/* {user ? (
             <UserButton/>
           ): (
             <User onClick={storeModal.onOpen}/>
-          )}
+          )} */}
         </div>
       </div>
 
@@ -59,14 +72,22 @@ const Navigation = () => {
       </div>
       <div className="navigation__cart">
         {/* navigation__cart--items */}
-        <div className="flex justify-between gap-2">
+        <div className="flex justify-between items-center gap-2">
           <div className="cursor-pointer hidden md:block"  >
-          {user ? (
+          <SignedOut>
+            <SignInButton>
+              <button className="font-medium text-base">sign in</button>
+            </SignInButton>
+          </SignedOut>
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
+          {/* {user ? (
             <UserButton/>
           ): (
             <User onClick={storeModal.onOpen} />
             // <User onClick={() => router.push('/authmy-auto/login')}/>
-          )}
+          )} */}
           </div>
 
           <div className="svg--bag cursor-pointer self-center">

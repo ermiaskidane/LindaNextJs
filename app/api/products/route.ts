@@ -1,4 +1,4 @@
-import { auth } from "@/auth";
+// import { auth } from "@/auth";
 import { db } from "@/lib/db";
 import { NextResponse } from "next/server";
 
@@ -6,7 +6,7 @@ export async function POST(
   req: Request,
 ) {
   try {
-    const session = await auth();
+    // const session = await auth();
 
     // console.log("session", session)
 
@@ -17,9 +17,9 @@ export async function POST(
     // console.log("product", body)
 
     // we cant check isFeatured, isArchived cz they are boolean mean could be false
-    if (!session) {
-      return new NextResponse("Unauthenticated", { status: 403 });
-    }
+    // if (!session) {
+    //   return new NextResponse("Unauthenticated", { status: 403 });
+    // }
 
     if (!name) {
       return new NextResponse("Name is required", { status: 400 });

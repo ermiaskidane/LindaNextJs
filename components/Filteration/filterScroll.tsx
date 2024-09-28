@@ -12,12 +12,14 @@ import Slider from '@mui/material/Slider';
 import { useRouter, useSearchParams } from "next/navigation";
 import { Check } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Separator } from "../ui/separator";
 // import { Slider, Switch } from 'antd';
 
 interface FilterScrollProps {
   title: string;
   valueKey: string;
-  filter?: typeof categories | typeof color | typeof size | typeof brand
+  // filter?: typeof categories | typeof color | typeof size | typeof brand
+  filter?: any
 }
 
 function valuetext(value: number) {
@@ -33,7 +35,7 @@ const FilterScroll = ({filter, title, valueKey}: FilterScrollProps) => {
   const selectedValue = searchParams.get(valueKey);
 
   // console.log("selectedValue", selectedValue)
-  // console.log("filter", filter) 
+  console.log("filter", filter) 
 
   const handleChange = (event: Event, newValue: number | number[]) => {
     setValue(newValue as number[]);
@@ -41,16 +43,16 @@ const FilterScroll = ({filter, title, valueKey}: FilterScrollProps) => {
   };
 
 
-  const onClick = (name: string) => {
-    // console.log("name", name)
+  const onClick = (id: string) => {
+    // console.log("id", id)
     const current = qs.parse(searchParams.toString())
 
     const query = {
       ...current,
-      [valueKey]: name
+      [valueKey]: id
     }
 
-    if(current[valueKey] === name) {
+    if(current[valueKey] === id) {
       query[valueKey] = null
     }
 
@@ -88,19 +90,20 @@ const FilterScroll = ({filter, title, valueKey}: FilterScrollProps) => {
               <AccordionContent>
                 {title !== "Price" ? (
                   <ScrollArea className="h-40 w-full ml-2 ">
-                      {filter?.map((filt, i) => (
+                      {filter?.map((filt: any, i:number) => (
                         <ul className=" cursor-pointer" key={i}>
-                          <li className="pb-2 px-2 flex justify-between" onClick={() => onClick(filt.name)}>
+                          <li className="pb-2 px-2 flex justify-between" onClick={() => onClick(filt.id)}>
                             {filt.name}
                             {/* check mark only if the selected value matches with the filt.name */}
-                            {selectedValue === filt.name && (
+                            {selectedValue === filt.id && (
                               <span className={cn("inline-block",
-                                selectedValue ===  filt.name && 'text-[#0084c1fb]',
+                                selectedValue ===  filt.id && 'text-[#0084c1fb]',
                               )}>
                                 <Check />
                               </span>
                             )}
                           </li>
+                          {/* <Separator className="bg-blue-200" /> */}
                         </ul>
                       ))}
                     </ScrollArea>

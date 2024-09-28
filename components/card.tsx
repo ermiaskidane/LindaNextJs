@@ -10,15 +10,15 @@ import { useRouter } from "next/navigation";
 
 interface CardProps {
   products: (Product & { images: Image[] })[]
-  admin?: Session["user"] & { role?: "ADMIN" | "USER" }; 
+  // admin?: Session["user"] & { role?: "ADMIN" | "USER" }; 
   // Images: string[]
   paddingBottom?: boolean
 }
 
-const Card: React.FC<CardProps>  = ({products, admin, paddingBottom}) => {
+const Card: React.FC<CardProps>  = ({products, paddingBottom}) => {
   const router = useRouter()
 
-  console.log("dfdsfs", products)
+  // console.log("dfdsfs", products)
   return ( 
     <div className="menu__newProduct--options">
       <ul className="newProduct__options--lists newProducts--grid">
@@ -27,11 +27,11 @@ const Card: React.FC<CardProps>  = ({products, admin, paddingBottom}) => {
           <div className="options__list--wrapper">
             <Link href={`/cloth/${product.id}`}>
               <figure className="options__lists--img relative">
-                {admin?.role === "ADMIN" && (
+                {/* {admin?.role === "ADMIN" && (
                 <div className="absolute top-1 right-2 z-50 bg-white p-2 rounded-full" onClick={() => router.push(`/listclothes/${product.id}`)}>
                   <Edit className=" text-[#0084c1fb] rounded hover:scale-110" />
                 </div>
-              )} 
+              )}  */}
                 <img src={product.images[0].url!} alt="item" />
               </figure>
             </Link>

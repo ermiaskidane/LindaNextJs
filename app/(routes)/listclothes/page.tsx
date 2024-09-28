@@ -10,8 +10,16 @@ import Link from "next/link";
 import { useState } from "react";
 import ProductHeading from "./components/ProductHeading";
 import { getSession } from "next-auth/react";
-import { auth } from "@/auth";
+// import { auth } from "@/auth";
 import { db } from "@/lib/db";
+import { auth } from "@clerk/nextjs/server";
+import getProducts from "@/actions/get-products";
+import getCategory from "@/actions/get-category";
+import getSizes from "@/actions/get-sizes";
+import getStyles from "@/actions/get-styles";
+import getPrices from "@/actions/get-prices";
+import getColors from "@/actions/get-colors";
+import { filterData } from "@/lib/filterData";
 
 const Image1 = [
   "/images/fashion-1.jpg",
@@ -28,20 +36,40 @@ const Image1 = [
   "/images/fashion-4.jpg"
 ]
 
-const ListClothes = async() => {
+interface ListClothesProps {
+  searchParams: {
+    brandId: string;
+    categoryId: string;
+    colorId: string;
+    priceId_max: string;
+    priceId_min: string;
+    sizeId: string;
+    styleId: string;
+  }
+}
 
-  const session = await auth()
-  const AdminUser = session?.user
+const ListClothes: React.FC<ListClothesProps>  = async({searchParams}) => {
 
-  console.log("dksjbsf", AdminUser)
+  console.log("dddd", searchParams)
+  const user = auth()
 
-  const products = await db.product.findMany({
-    include: {
-      images: true
-    }
+  const productss = await getProducts({ isFeatured: true });
+  const filtrated = await filterData();
+  //  console.log("@@@@@@@@@@@@@@@", filtrated)
+  const products = await getProducts({ 
+    categoryId: searchParams.categoryId,
+    colorId: searchParams.colorId,
+    sizeId: searchParams.sizeId,
+    min_price: searchParams.priceId_min,
+    max_price: searchParams.priceId_max
   });
+  // console.log("@@@@@@@@@@@@@@@", products)
 
-  // console.log("products", products)
+  // const products = await db.product.findMany({
+  //   include: {
+  //     images: true
+  //   }
+  // });
   
   return ( 
     <div className="flex flex-col">
@@ -51,16 +79,16 @@ const ListClothes = async() => {
         </div>
         <div className="grow text-center">
           <div className="flex justify-center gap-2 cursor-pointer">
-            <FilterDropDown/>
+            <FilterDropDown filter={filtrated} />
           </div>
         </div>
       </div>
       
       <Separator className="my-4 h-[1px] bg-neutral-300" />
       <div className="px-4">
-        <ProductHeading admin={AdminUser}/>
-        {/* <Card Images={Image1} paddingBottom/> */}
-        <Card products={products} admin={AdminUser} paddingBottom/>
+        {/* <ProductHeading admin={user}/> */}
+        {/* <Card products={products} admin={user} paddingBottom/> */}
+        <Card products={products} paddingBottom/>
       </div>
     </div>
   );
