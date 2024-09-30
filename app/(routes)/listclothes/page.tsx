@@ -1,40 +1,26 @@
-import FilterDropDown from "@/components/Filteration/filterDropDown";
 import SortDropDown from "@/components/Filteration/sortDropDown";
 import Card from "@/components/card";
-import Menu from "@/components/menu";
-import { DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Separator } from "@/components/ui/separator";
-import { DropdownMenuCheckboxItemProps } from "@radix-ui/react-dropdown-menu";
-import { ArrowUpDown, ListFilter, SlidersHorizontal } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
-import ProductHeading from "./components/ProductHeading";
-import { getSession } from "next-auth/react";
-// import { auth } from "@/auth";
-import { db } from "@/lib/db";
 import { auth } from "@clerk/nextjs/server";
 import getProducts from "@/actions/get-products";
-import getCategory from "@/actions/get-category";
-import getSizes from "@/actions/get-sizes";
-import getStyles from "@/actions/get-styles";
-import getPrices from "@/actions/get-prices";
-import getColors from "@/actions/get-colors";
 import { filterData } from "@/lib/filterData";
+import FilterDropDown from "@/components/Filteration/filterDropDown";
 
-const Image1 = [
-  "/images/fashion-1.jpg",
-  "/images/fashion-3.jpg",
-  "/images/fashion-4.jpg",
-  "/images/fashion-9.webp",
-  "/images/fashion-3.jpg",
-  "/images/fashion-6.jpg",
-  "/images/fashion-9.webp",
-  "/images/fashion-10.webp",
-  "/images/fashion-14.webp",
-  "/images/fashion-5.jpg",
-  "/images/fashion-9.webp",
-  "/images/fashion-4.jpg"
-]
+// const Image1 = [
+//   "/images/fashion-1.jpg",
+//   "/images/fashion-3.jpg",
+//   "/images/fashion-4.jpg",
+//   "/images/fashion-9.webp",
+//   "/images/fashion-3.jpg",
+//   "/images/fashion-6.jpg",
+//   "/images/fashion-9.webp",
+//   "/images/fashion-10.webp",
+//   "/images/fashion-14.webp",
+//   "/images/fashion-5.jpg",
+//   "/images/fashion-9.webp",
+//   "/images/fashion-4.jpg"
+// ]
 
 interface ListClothesProps {
   searchParams: {
@@ -53,7 +39,7 @@ const ListClothes: React.FC<ListClothesProps>  = async({searchParams}) => {
   console.log("dddd", searchParams)
   const user = auth()
 
-  const productss = await getProducts({ isFeatured: true });
+  // const productss = await getProducts({ isFeatured: true });
   const filtrated = await filterData();
   //  console.log("@@@@@@@@@@@@@@@", filtrated)
   const products = await getProducts({ 
@@ -71,7 +57,7 @@ const ListClothes: React.FC<ListClothesProps>  = async({searchParams}) => {
   //   }
   // });
   
-  return ( 
+  return (
     <div className="flex flex-col">
       <div className="flex mt-2">
         <div className="grow text-center border-r-2 border-neutral-500">

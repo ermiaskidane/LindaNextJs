@@ -6,7 +6,6 @@ import Backdrop from "./backdrop";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { ShoppingBag, User } from "lucide-react";
-import useLoginModal from "@/hooks/use-login-modal";
 import {
   SignInButton,
   SignedIn,
@@ -24,8 +23,6 @@ const Navigation = () => {
   // we can call this cz the auth is from next-auth/react for client component
   // const user = useCurrentUser();
   const router = useRouter()
-
-  const storeModal = useLoginModal();
 
   // console.log("open", open)
   // console.log("show", show)
