@@ -20,13 +20,15 @@ const Card: React.FC<CardProps>  = ({products, paddingBottom}) => {
       {products.map((product, i) => (
         <div key={i} className=" p-1 relative group">
         <div className="relative overflow-hidden">
+          <Link href={`/cloth/${product.id}`}>
             <Image 
-                src={product.images[0].url!} 
-                alt="item"
-                width={500}
-                height={500}
-                className="w-full h-90 md:h-80 object-cover transition-transform duration-700 group-hover:scale-110"
-            />
+                  src={product.images[0].url!} 
+                  alt="item"
+                  width={500}
+                  height={500}
+                  className="w-full h-90 md:h-80 object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+          </Link>
             <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <button className="bg-white text-blue-500 p-2 rounded-full hover:bg-light-blue-1 hover:text-white transition-colors duration-700">
                   <svg className=" w-5 h-5 hover:fill-white">
