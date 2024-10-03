@@ -37,9 +37,7 @@ const Cloth = () => {
   }
   return (
     <div className="px-4 mx-auto py-8">
-      
       <ProductDeatil/>
-      
       <Recommend/>
       <div className="py-4">
         <h1 className="font-bold text-2xl py-2">User Reviews</h1>

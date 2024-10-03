@@ -14,7 +14,8 @@ const Recommend = () => {
   return (
     <div className="mx-auto px-4 mt-12">
       <h2 className="text-xl font-semibold mb-4">You may also like...</h2>
-      <Carousel className="w-full max-w-6xl">
+      {/* max-w-7xl */}
+      <Carousel className="w-full ">
       <CarouselContent className="-ml-1">
         {Array.from({ length: 10 }).map((_, index) => (
           <CarouselItem key={index} className="pl-1 basis-1/2 md:basis-1/5">
