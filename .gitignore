@@ -11,6 +11,7 @@ note.txt
 # note
 /components/auth/note.txt
 /app/auth/note.txt
+/lib/data.ts
 
 # testing
 /coverage
@@ -18,6 +19,8 @@ note.txt
 # next.js
 /.next/
 /out/
+
+
 
 # production
 /build

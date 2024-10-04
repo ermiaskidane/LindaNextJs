@@ -13,7 +13,7 @@ import Image from 'next/image';
 const Recommend = () => {
   return (
     <div className="mx-auto px-4 mt-12">
-      <h2 className="text-xl font-semibold mb-4">You may also like...</h2>
+      <h2 className="text-xl mb-4 font-semibold ">You may also like...</h2>
       {/* max-w-7xl */}
       <Carousel className="w-full ">
       <CarouselContent className="-ml-1">

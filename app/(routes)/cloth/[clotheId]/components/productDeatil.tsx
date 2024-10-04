@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
-import { ChevronLeft, ChevronRight, Heart, Truck, ShoppingBag } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
+import CustomizeProduct from "./customizeProduct";
 
 const ProductDetail = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -102,50 +103,7 @@ const ProductDetail = () => {
 
       {/* Right column - Product details */}
       <div className="md:w-1/3">
-        <div className="flex justify-between items-center">
-          <img
-            src="https://utfs.io/f/bea20373-2165-45c9-99a7-0990dd87d37e-5z4hwj.jpg"
-            alt="Nike logo"
-            className="h-6"
-          />
-          <Heart className="w-6 h-6" />
-        </div>
-        <h1 className="text-2xl font-bold mt-4">Womens Pro 365 3 Inch Short</h1>
-        <p className="text-gray-600">Iron Grey / White</p>
-        <div className="mt-4">
-          <span className="text-2xl font-bold">£22.99</span>
-          <span className="ml-2 text-gray-500 line-through">RRP £27.99</span>
-        </div>
-        <div className="mt-4">
-          <p className="font-semibold">Colors</p>
-          <ul className="flex items-center gap-3 my-2">
-            <li className="w-8 h-8 rounded-full ring-1 ring-gray-300 cursor-pointer relative bg-red-500">
-              <div className="absolute w-10 h-10 rounded-full ring-2 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
-            </li>
-            <li className="w-8 h-8 rounded-full ring-1 ring-gray-300 cursor-pointer relative bg-blue-500"></li>
-            <li className="w-8 h-8 rounded-full ring-1 ring-gray-300 cursor-not-allowed relative bg-green-500">
-              <div className="absolute w-10 h-[2px] bg-red-400 rotate-45 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
-            </li>
-          </ul>
-          <p className="font-semibold">Size</p>
-          <div className="flex gap-2 mt-2">
-            {["XS", "S", "M", "L", "XL"].map((size) => (
-              <button key={size} className="border border-gray-300 px-3 py-1 rounded">
-                {size}
-              </button>
-            ))}
-          </div>
-        </div>
-        <button className="w-full bg-green-500 text-white py-3 rounded mt-6 flex items-center justify-center">
-          <ShoppingBag className="w-5 h-5 mr-2" />
-          Add to bag
-        </button>
-        <div className="mt-6">
-          <p className="flex items-center text-green-600">
-            <Truck className="w-5 h-5 mr-2" />
-            FREE UK Standard Delivery on all orders over £100
-          </p>
-        </div>
+        <CustomizeProduct/>
       </div>
     </div>
   );
