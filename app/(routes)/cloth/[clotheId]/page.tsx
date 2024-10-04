@@ -40,7 +40,7 @@ const Cloth = () => {
       <ProductDeatil/>
       <Recommend/>
       <div className="py-4">
-        <h1 className="font-bold text-2xl py-2">User Reviews</h1>
+        <h1 className="font-bold py-2 text-2xl ">User Reviews</h1>
         <Suspense fallback="Loading...">
           <Reviews productId="3fb6a3c8-988b-8755-04bd-5c59ae0b18ea" />
         </Suspense>
