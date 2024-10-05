@@ -5,28 +5,37 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import CustomizeProduct from "./customizeProduct";
 
-const ProductDetail = () => {
+interface ProductDeatilProps {
+  product: any;
+  colorAndSize: any[];
+}
+
+const ProductDetail: React.FC<ProductDeatilProps>  = ({
+  product,
+  colorAndSize
+}) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const images = [
-    "https://utfs.io/f/bea20373-2165-45c9-99a7-0990dd87d37e-5z4hwj.jpg",
-    "https://utfs.io/f/bea20373-2165-45c9-99a7-0990dd87d37e-5z4hwj.jpg",
-    "https://utfs.io/f/bea20373-2165-45c9-99a7-0990dd87d37e-5z4hwj.jpg",
-    "https://utfs.io/f/bea20373-2165-45c9-99a7-0990dd87d37e-5z4hwj.jpg",
-    "https://utfs.io/f/bea20373-2165-45c9-99a7-0990dd87d37e-5z4hwj.jpg"
-  ];
+
+  // const images = [
+  //   "https://utfs.io/f/bea20373-2165-45c9-99a7-0990dd87d37e-5z4hwj.jpg",
+  //   "https://utfs.io/f/bea20373-2165-45c9-99a7-0990dd87d37e-5z4hwj.jpg",
+  //   "https://utfs.io/f/bea20373-2165-45c9-99a7-0990dd87d37e-5z4hwj.jpg",
+  //   "https://utfs.io/f/bea20373-2165-45c9-99a7-0990dd87d37e-5z4hwj.jpg",
+  //   "https://utfs.io/f/bea20373-2165-45c9-99a7-0990dd87d37e-5z4hwj.jpg"
+  // ];
 
   // Handle previous button click
   const handlePrevClick = () => {
     setCurrentImageIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+      prevIndex === 0 ? product.images.length - 1 : prevIndex - 1
     );
   };
 
   // Handle next button click
   const handleNextClick = () => {
     setCurrentImageIndex((prevIndex) =>
-      prevIndex === images.length - 1 ? 0 : prevIndex + 1
+      prevIndex === product.images.length - 1 ? 0 : prevIndex + 1
     );
   };
 
@@ -34,10 +43,10 @@ const ProductDetail = () => {
     <div className="flex flex-col md:flex-row gap-8">
       {/* Thumbnails on the left */}
       <div className="hidden md:flex flex-col mt-4 gap-1 overflow-x-auto">
-        {images.map((image, index) => (
+        {product.images.map((image, index) => (
           <div key={index} className="relative p-1">
             <Image
-              src={image}
+              src={image.url}
               alt={`Thumbnail ${index + 1}`}
               width={80}
               height={80}
@@ -52,15 +61,15 @@ const ProductDetail = () => {
 
       {/* Main Image with sliding effect */}
       <div className="md:w-2/3">
-        <div className="relative overflow-hidden "> {/* Fixed height for smooth sliding */}
+        <div className="relative overflow-hidden "> 
           <div
             className="flex transition-transform duration-500 ease-in-out"
             style={{ transform: `translateX(-${currentImageIndex * 100}%)` }} // Sliding based on index
           >
-            {images.map((image, index) => (
+            {product.images.map((image, index) => (
               <div key={index} className="min-w-full">
                 <Image
-                  src={image}
+                  src={image.url}
                   alt={`Nike Women's Pro 365 3 Inch Short ${index}`}
                   width={300}
                   height={300}
@@ -85,10 +94,10 @@ const ProductDetail = () => {
 
         {/* Mobile Thumbnails */}
         <div className="flex mt-4 gap-2 p-1 overflow-x-auto md:hidden">
-          {images.map((image, index) => (
+          {product.images.map((image, index) => (
             <Image
               key={index}
-              src={image}
+              src={image.url}
               alt={`Thumbnail ${index + 1}`}
               width={80}
               height={80}
@@ -103,7 +112,7 @@ const ProductDetail = () => {
 
       {/* Right column - Product details */}
       <div className="md:w-1/3">
-        <CustomizeProduct/>
+        <CustomizeProduct product={product} colorAndSize={colorAndSize}/>
       </div>
     </div>
   );

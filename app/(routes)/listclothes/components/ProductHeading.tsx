@@ -26,7 +26,7 @@ const ProductHeading: React.FC<ProductHeadingProps> = ({admin}) => {
   }
 
   const onSubmit = async (data: any) => {
-    console.log("dfskfbsdh", data)
+    console.log("productHeading", data)
   }
 
 
