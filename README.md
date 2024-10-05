@@ -13,6 +13,10 @@ Those steps don't have full functionality as the verified app.
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## git tracking remove
+
+if a file has been commit and tracked before and want to remove run this command `git rm --cached  path/to/your/file` eg. components/card.tsx
+
 <!-- ## Getting Started
 
 First, run the development server:

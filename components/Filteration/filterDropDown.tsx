@@ -30,7 +30,7 @@ interface FilterProps {
 const FilterDropDown: React.FC<FilterProps> = ({
   filter
 }) => {
-  console.log("@@@@@@@@@@@@@@@", filter)
+  console.log("@@~~~~@@@~~~~~~", filter)
   // const categorys = await getCategory();
   // const colors = await getColors();
   // const sizes = await getSizes();

@@ -1,26 +1,76 @@
 import { Heart, ShoppingBag, Truck } from 'lucide-react';
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import AddQuantity from './addQuantity';
 import { data } from '@/lib/data';
 
-const CustomizeProduct = () => {
+interface CustomizeProductProps {
+  product: any;
+  colorAndSize: any[];
+}
+
+const CustomizeProduct: React.FC<CustomizeProductProps> = ({
+  product,
+  colorAndSize,
+}) => {
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [selectedColor, setSelectedColor] = useState<string | null>(null);
 
-  // Define available colors for each size
-  const colorAvailability: { [key: string]: string[] } = {
-    M: ['red', 'blue'],
-    default: ['red', 'blue', 'green'],
+  console.log(">>>>>>>", colorAndSize)
+
+ // Define available colors for each size using useMemo 
+ // it recalculated only when colorAndSize changes
+ const colorAvailability = useMemo(() => {
+
+  //Set automatically ensures uniqueness(won't repeat color), which is more efficient than using includes for arrays
+  const availability: { [key: string]: Set<string> } = {
+    XL: new Set(),
+    S: new Set(),
+    M: new Set(),
+    L: new Set(),
+    XS: new Set(),
+    default: new Set(["white", "black", "blue", "yellow"]),
   };
 
-  // Function to get available colors based on selected size
-  const getAvailableColors = (size: string | null) => size ? colorAvailability[size] || colorAvailability.default : colorAvailability.default;
+  colorAndSize.forEach((item) => {
+    const sizeKey = item.size.value.toUpperCase();
+    const colorName = item.color.name.trim();
 
-  const colors = [
-    { name: 'red', class: 'bg-red-500' },
-    { name: 'blue', class: 'bg-blue-500' },
-    { name: 'green', class: 'bg-green-500' },
-  ];
+    if (availability[sizeKey]) {
+      availability[sizeKey].add(colorName);
+    } else {
+      availability[sizeKey] = new Set([colorName]);
+    }
+  });
+
+  // Convert Sets to Arrays for easier usage in the component
+  const availabilityArray: { [key: string]: string[] } = {
+    XL: [],
+    S: [],
+    M: [],
+    L: [],
+    XS: [],
+    default: ["white", "black", "blue", "yellow"],
+  };
+
+  Object.keys(availability).forEach((size) => {
+    if (size !== 'default') {
+      availabilityArray[size] = Array.from(availability[size]);
+    }
+  });
+
+  return availabilityArray;
+}, [colorAndSize]);
+
+// Function to get available colors based on selected size
+const getAvailableColors = (size: string | null) =>
+  size ? colorAvailability[size] || colorAvailability.default : colorAvailability.default;
+
+const colors = [
+  { name: 'white', class: 'bg-white' },
+  { name: 'black', class: 'bg-black' },
+  { name: 'blue', class: 'bg-blue-500' },
+  { name: 'yellow', class: 'bg-yellow-500' },
+];
 
   return (
     <>

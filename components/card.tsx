@@ -49,7 +49,7 @@ const Card: React.FC<CardProps>  = ({products, paddingBottom}) => {
         </div>
 
         <div className="text-center">
-          <h3 className="text-sm mt-2 w-full">Riot Jeans Casual Roll-up...</h3>
+          <h3 className="text-sm mt-2 w-full">{product.name}</h3>
           <div className="flex justify-center mt-1">
               {[...Array(5)].map((_, i) => (
                 <span key={i}>
@@ -59,7 +59,7 @@ const Card: React.FC<CardProps>  = ({products, paddingBottom}) => {
                 </span>
               ))}
           </div>
-          <p className="font-bold mt-1 ">$100.00</p>
+          <p className="font-bold mt-1 ">${product.price}</p>
           <button className="border text-gray-800  text-xs md:text-sm px-4 py-1 mt-2 hover:bg-light-blue-1 hover:text-white transition-colors duration-300">ADD TO CART</button>
        </div>
        </div>
