@@ -1,13 +1,23 @@
 import useCart from '@/hooks/use-cart';
 import { data } from '@/lib/data';
+import { ShoppingBag } from 'lucide-react';
 import React, {useState} from 'react'
 
-const AddQuantity = ({product}: {product: typeof data}) => {
+interface AddQuantityProps {
+  product: typeof data[0];
+  selectedSize: string | null;
+  selectedColor: string | null;
+}
+
+
+const AddQuantity: React.FC<AddQuantityProps> = ({ product, selectedSize, selectedColor }) => {
 
   const [quantity, setQuantity] = useState(1);
+  const [error, setError] = useState<string | null>(null);
 
-  // // TEMPORARY
-  const stockNumber = 4;
+  // quantity of the product
+  const stockNumber = product.quantity
+ 
 
   const {addItem} = useCart()
 
@@ -18,6 +28,16 @@ const AddQuantity = ({product}: {product: typeof data}) => {
     if (type === "i" && quantity < stockNumber) {
       setQuantity((prev) => prev + 1);
     }
+  };
+
+  const handleAddToBag = () => {
+    if (!selectedSize || !selectedColor) {
+      setError('Please select both size and color.');
+      return;
+    }
+
+    setError(null); // Clear error if both are selected
+    addItem({ ...product, size: selectedSize, color: selectedColor, quantity });
   };
   return (
     <div className="flex flex-col gap-4">
@@ -51,14 +71,24 @@ const AddQuantity = ({product}: {product: typeof data}) => {
           </div>
         )}
       </div>
-      <button
-        onClick={() => addItem(data[0])}
-        // disabled={}
-        className="w-32 md:w-36 text-sm rounded-3xl ring-1 ring-[#0084c1fb] text-[#0084c1fb] py-2 px-4 hover:bg-lama hover:text-white disabled:cursor-not-allowed disabled:bg-pink-200 disabled:ring-0 disabled:text-white disabled:ring-none"
-      >
-        Add to Cart
-      </button>
     </div>
+    <button
+        onClick={handleAddToBag}
+        className={`w-full bg-green-500 text-white py-3 rounded mt-6 flex items-center justify-center ${
+          (!selectedSize || !selectedColor) ? 'opacity-50 cursor-not-allowed' : ''
+        }`}
+        disabled={!selectedSize || !selectedColor}
+      >
+        <ShoppingBag className="w-5 h-5 mr-2" />
+        Add to bag
+      </button>
+    {/* <button 
+      onClick={() => addItem(product)}
+      className="w-full bg-green-500 text-white py-3 rounded mt-6 flex items-center justify-center"
+    >
+      <ShoppingBag className="w-5 h-5 mr-2" />
+      Add to bag
+    </button> */}
   </div>
   )
 }

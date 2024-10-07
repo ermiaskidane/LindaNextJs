@@ -4,9 +4,10 @@ import React, { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import CustomizeProduct from "./customizeProduct";
+import { data } from "@/lib/data";
 
 interface ProductDeatilProps {
-  product: any;
+  product: typeof data[0];
   colorAndSize: any[];
 }
 
