@@ -5,6 +5,8 @@ import ProductDeatil from "./components/productDeatil";
 import Recommend from "./components/recommend";
 import getProduct from "@/actions/get-product";
 import getProducts from "@/actions/get-products";
+import getColors from "@/actions/get-colors";
+import getSizes from "@/actions/get-sizes";
 
 const Cloth = async({
   params
@@ -22,6 +24,11 @@ const Cloth = async({
     categoryId: productsss.categoryId
   })
 
+  const colors = await getColors()
+  const sizes = await getSizes()
+
+  console.log("><><><><><", colors)
+  console.log("~~@~@~@~@~@~@~@", sizes)
   console.log(">>>>>>>", category)
 
   const product = {
@@ -56,7 +63,7 @@ const Cloth = async({
   }
   return (
     <div className="px-4 mx-auto py-8">
-      <ProductDeatil product={productsss} colorAndSize={category}/>
+      <ProductDeatil product={productsss} category={category} colors={colors} sizes={sizes}/>
       <Recommend/>
       <div className="py-4">
         <h1 className="font-bold py-2 text-2xl ">User Reviews</h1>

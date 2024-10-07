@@ -8,12 +8,16 @@ import { data } from "@/lib/data";
 
 interface ProductDeatilProps {
   product: typeof data[0];
-  colorAndSize: any[];
+  category: any[];
+  colors: any[]
+  sizes: any[]
 }
 
 const ProductDetail: React.FC<ProductDeatilProps>  = ({
   product,
-  colorAndSize
+  category,
+  colors,
+  sizes
 }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -113,7 +117,7 @@ const ProductDetail: React.FC<ProductDeatilProps>  = ({
 
       {/* Right column - Product details */}
       <div className="md:w-1/3">
-        <CustomizeProduct product={product} colorAndSize={colorAndSize}/>
+        <CustomizeProduct product={product} category={category} colors={colors} sizes={sizes}/>
       </div>
     </div>
   );

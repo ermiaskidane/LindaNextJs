@@ -5,12 +5,16 @@ import { data } from '@/lib/data';
 
 interface CustomizeProductProps {
   product: any;
-  colorAndSize: any[];
+  category: any[];
+  colors:any[];
+  sizes: any[];
 }
 
 const CustomizeProduct: React.FC<CustomizeProductProps> = ({
   product,
-  colorAndSize,
+  category,
+  colors,
+  sizes
 }) => {
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [selectedColor, setSelectedColor] = useState<string | null>(null);
@@ -23,16 +27,16 @@ const CustomizeProduct: React.FC<CustomizeProductProps> = ({
 
   //Set automatically ensures uniqueness(won't repeat color), which is more efficient than using includes for arrays
   const availability: { [key: string]: Set<string> } = {
-    XL: new Set(),
-    S: new Set(),
-    M: new Set(),
-    L: new Set(),
-    XS: new Set(),
+    xl: new Set(),
+    s: new Set(),
+    m: new Set(),
+    l: new Set(),
+    xs: new Set(),
     default: new Set(["white", "black", "blue", "yellow"]),
   };
 
-  colorAndSize.forEach((item) => {
-    const sizeKey = item.size.value.toUpperCase();
+  category.forEach((item) => {
+    const sizeKey = item.size.value;
     const colorName = item.color.name.trim();
 
     if (availability[sizeKey]) {
@@ -44,11 +48,11 @@ const CustomizeProduct: React.FC<CustomizeProductProps> = ({
 
   // Convert Sets to Arrays for easier usage in the component
   const availabilityArray: { [key: string]: string[] } = {
-    XL: [],
-    S: [],
-    M: [],
-    L: [],
-    XS: [],
+    xl: [],
+    s: [],
+    m: [],
+    l: [],
+    xs: [],
     default: ["white", "black", "blue", "yellow"],
   };
 
@@ -59,21 +63,32 @@ const CustomizeProduct: React.FC<CustomizeProductProps> = ({
   });
 
   return availabilityArray;
-}, [colorAndSize]);
+}, [category]);
 
 
-// console.log("@@@@@@@@@@@@@@", colorAvailability)
+console.log("@@@@@@@@@@@@@@", colorAvailability)
 
 // Function to get available colors based on selected size
 const getAvailableColors = (size: string | null) =>
   size ? colorAvailability[size] || colorAvailability.default : colorAvailability.default;
 
-const colors = [
-  { name: 'white', class: 'bg-white' },
-  { name: 'black', class: 'bg-black' },
-  { name: 'blue', class: 'bg-blue-500' },
-  { name: 'yellow', class: 'bg-yellow-500' },
-];
+// Update selectedSize and reset selectedColor if not available for the new size
+const handleSizeSelection = (size: any) => {
+  const availableColors = getAvailableColors(size.value);
+  
+  if (selectedColor && !availableColors.includes(selectedColor)) {
+    setSelectedColor(null); // Reset color if not available for the new size
+  }
+
+  setSelectedSize(size.value);
+};
+
+// const colors = [
+//   { name: 'white', class: 'bg-white' },
+//   { name: 'black', class: 'bg-black' },
+//   { name: 'blue', class: 'bg-blue-500' },
+//   { name: 'yellow', class: 'bg-yellow-500' },
+// ];
 
   return (
     <>
@@ -95,13 +110,15 @@ const colors = [
       <div className="mt-4">
         <p className="font-semibold">Size</p>
         <div className="flex gap-2 mt-2">
-          {["XS", "S", "M", "L", "XL"].map((size: string) => (
+          {/* {["XS", "S", "M", "L", "XL"].map((size: string) => ( */}
+          {sizes.map((size: any) => (
             <button
               key={size}
-              onClick={() => setSelectedSize(size)}
-              className={`border border-gray-300 px-3 py-1 rounded ${selectedSize === size ? 'bg-gray-300' : ''}`}
+              // onClick={() => setSelectedSize(size)}
+              onClick={() => handleSizeSelection(size)}
+              className={`border border-gray-300 px-3 py-1 rounded ${selectedSize === size.value ? 'bg-gray-300' : ''}`}
             >
-              {size}
+              {size.value.toUpperCase()}
             </button>
           ))}
         </div>
@@ -117,12 +134,13 @@ const colors = [
             return (
               <li
                 key={color.name}
-                className={`w-8 h-8 rounded-full ring-1 ring-gray-300 relative ${color.class} ${
+                className={`w-8 h-8 rounded-full ring-1 ring-gray-300 relative  ${
                   isDisabled ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'
                 }`}
-                onClick={() => !isDisabled && setSelectedColor(color.name)}
+                style={{backgroundColor:color.value}}
+                onClick={() => !isDisabled && setSelectedColor(color.id)}
               >
-                {selectedColor === color.name && (
+                {selectedColor === color.id && (
                   <div className="absolute w-10 h-10 rounded-full ring-2 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
                 )}
                 {isDisabled && (
