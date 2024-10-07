@@ -15,7 +15,7 @@ const CustomizeProduct: React.FC<CustomizeProductProps> = ({
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [selectedColor, setSelectedColor] = useState<string | null>(null);
 
-  console.log(">>>>>>>", colorAndSize)
+  // console.log(">>>>>>>", colorAndSize)
 
  // Define available colors for each size using useMemo 
  // it recalculated only when colorAndSize changes
@@ -60,6 +60,9 @@ const CustomizeProduct: React.FC<CustomizeProductProps> = ({
 
   return availabilityArray;
 }, [colorAndSize]);
+
+
+// console.log("@@@@@@@@@@@@@@", colorAvailability)
 
 // Function to get available colors based on selected size
 const getAvailableColors = (size: string | null) =>
@@ -131,12 +134,8 @@ const colors = [
         </ul>
       </div>
 
-      <AddQuantity product={data}/>
+      <AddQuantity product={product} selectedSize={selectedSize} selectedColor={selectedColor}/>
 
-      <button className="w-full bg-green-500 text-white py-3 rounded mt-6 flex items-center justify-center">
-        <ShoppingBag className="w-5 h-5 mr-2" />
-        Add to bag
-      </button>
       <div className="mt-6">
         <p className="flex items-center text-green-600">
           <Truck className="w-5 h-5 mr-2" />
