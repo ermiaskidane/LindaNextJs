@@ -14,6 +14,7 @@ const AddQuantity: React.FC<AddQuantityProps> = ({ product, selectedSize, select
 
   const [quantity, setQuantity] = useState(1);
   const [error, setError] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   // quantity of the product
   const stockNumber = product.quantity
@@ -30,15 +31,51 @@ const AddQuantity: React.FC<AddQuantityProps> = ({ product, selectedSize, select
     }
   };
 
-  const handleAddToBag = () => {
+  const handleAddToBag = async () => {
     if (!selectedSize || !selectedColor) {
       setError('Please select both size and color.');
       return;
     }
 
     setError(null); // Clear error if both are selected
-    addItem({ ...product, size: selectedSize, color: selectedColor, quantity });
+    setIsLoading(true);
+
+    try {
+      // TODO: Replace 'product.id' with your product identifier
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/products?color=${selectedColor}&size=${selectedSize}&categoryId=${product.categoryId}`);
+      
+      // console.log(":::::::::::::::::", `${process.env.NEXT_PUBLIC_API_URL}/products?color=${selectedColor}&size=${selectedSize}&categoryId=${product.categoryId}`)
+      if (!response.ok) {
+        throw new Error('Failed to fetch the product details.');
+      }
+
+      const fetchedProduct = await response.json();
+
+      // Assuming that the API response has the product details
+      // addItem({
+      //   ...fetchedProduct,
+      //   size: selectedSize,
+      //   color: selectedColor,
+      //   quantity,
+      // });
+    } catch (err) {
+      setError('An error occurred while adding the product to your bag.');
+    } finally {
+      setIsLoading(false);
+    }
   };
+
+  // const handleAddToBag = () => {
+  //   if (!selectedSize || !selectedColor) {
+  //     setError('Please select both size and color.');
+  //     return;
+  //   }
+
+  //   setError(null); // Clear error if both are selected
+  //   //TODO: check the product first
+
+  //   addItem({ ...product, size: selectedSize, color: selectedColor, quantity });
+  // };
   return (
     <div className="flex flex-col gap-4">
     <h4 className="font-medium">Choose a Quantity</h4>
@@ -72,6 +109,9 @@ const AddQuantity: React.FC<AddQuantityProps> = ({ product, selectedSize, select
         )}
       </div>
     </div>
+
+    {error && <p className="text-red-500 text-sm">{error}</p>}
+
     <button
         onClick={handleAddToBag}
         className={`w-full bg-green-500 text-white py-3 rounded mt-6 flex items-center justify-center ${
