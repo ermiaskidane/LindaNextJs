@@ -1,3 +1,4 @@
+import getProducts from '@/actions/get-products';
 import useCart from '@/hooks/use-cart';
 import { data } from '@/lib/data';
 import { ShoppingBag } from 'lucide-react';
@@ -18,6 +19,9 @@ const AddQuantity: React.FC<AddQuantityProps> = ({ product, selectedSize, select
 
   // quantity of the product
   const stockNumber = product.quantity
+
+  console.log("ASDSFSD", selectedSize)
+  console.log("DDAASEDCFR", selectedColor)
  
 
   const {addItem} = useCart()
@@ -41,15 +45,24 @@ const AddQuantity: React.FC<AddQuantityProps> = ({ product, selectedSize, select
     setIsLoading(true);
 
     try {
-      // TODO: Replace 'product.id' with your product identifier
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/products?color=${selectedColor}&size=${selectedSize}&categoryId=${product.categoryId}`);
+      console.log(":::::", selectedColor)
+      console.log("@@@@@@", product.categoryId)
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/products?colorId=${selectedColor}&sizeId=${selectedSize}&categoryId=${product.categoryId}`, 
+        {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          }
+        }
+      );
       
-      // console.log(":::::::::::::::::", `${process.env.NEXT_PUBLIC_API_URL}/products?color=${selectedColor}&size=${selectedSize}&categoryId=${product.categoryId}`)
       if (!response.ok) {
         throw new Error('Failed to fetch the product details.');
       }
 
       const fetchedProduct = await response.json();
+      console.log("sdasd", fetchedProduct)
 
       // Assuming that the API response has the product details
       // addItem({
