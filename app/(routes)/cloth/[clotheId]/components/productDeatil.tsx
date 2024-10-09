@@ -21,7 +21,6 @@ const ProductDetail: React.FC<ProductDeatilProps>  = ({
 }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-
   // const images = [
   //   "https://utfs.io/f/bea20373-2165-45c9-99a7-0990dd87d37e-5z4hwj.jpg",
   //   "https://utfs.io/f/bea20373-2165-45c9-99a7-0990dd87d37e-5z4hwj.jpg",

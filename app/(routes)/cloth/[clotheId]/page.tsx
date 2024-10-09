@@ -15,7 +15,7 @@ const Cloth = async({
 }) => {
 
   const productsss = await getProduct(params.clotheId);
-  console.log("@@@@@@@@@@@@@@@@@", productsss)
+  // console.log("@@@@@@@@@@@@@@@@@", productsss)
 
 
   // Note  that get the category of the selected product so it can list 
@@ -27,9 +27,9 @@ const Cloth = async({
   const colors = await getColors()
   const sizes = await getSizes()
 
-  console.log("><><><><><", colors)
-  console.log("~~@~@~@~@~@~@~@", sizes)
-  console.log(">>>>>>>", category)
+  // console.log("><><><><><", colors)
+  // console.log("~~@~@~@~@~@~@~@", sizes)
+  // console.log(">>>>>>>", category)
 
   const product = {
     id: '65cf9b7aa4e7c8104dd58ed0',
