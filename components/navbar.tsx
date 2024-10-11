@@ -12,14 +12,14 @@ import {
   SignedOut,
   UserButton 
 } from '@clerk/nextjs'
-// import { useCurrentUser } from "@/hooks/use-current-user";
-// import { UserButton } from "./auth/user-button";
 import { useRouter } from "next/navigation";
+import CartModal from "./cartModal";
 
 const Navigation = () => {
-  // const { userId } = useAuth();
   const [open, setOpen] = useState(false)
-  const [show, setShow] = useState(false)
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isCartOpenMobile, setIsCartOpenMobile] = useState(false);
+
   // we can call this cz the auth is from next-auth/react for client component
   // const user = useCurrentUser();
   const router = useRouter()
@@ -87,20 +87,13 @@ const Navigation = () => {
           )} */}
           </div>
 
-          <div className="svg--bag cursor-pointer self-center">
-          <ShoppingBag />
-            {/* <svg>
-              <use xlinkHref={`Sprite.svg#icon-shopping-bag`} />
-            </svg> */}
+          <div 
+            className="svg--bag cursor-pointer self-center"
+            onClick={() => setIsCartOpen((prev) => !prev)}
+            >
+              <ShoppingBag />
           </div>
-          {/* <div className="svg--bag">
-            <svg>
-              <use xlinkHref={`Sprite.svg#icon-shopping-bag`} />
-            </svg>
-          </div>
-
-          <span>Shopping Cart</span>
-          <span>0 items / $0.00</span> */}
+          {isCartOpen && <CartModal />}
         </div>
       </div>
     </div>
@@ -216,21 +209,9 @@ const Navigation = () => {
           </div>
         </div>
         <div className="Nav__header--bag">
-        <ShoppingBag onClick={() => setShow((prevShow) => !prevShow)}/>
-          {/* <svg 
-          onClick={() => setShow((prevShow) => !prevShow)}
-          >
-            <use xlinkHref={`Sprite.svg#icon-shopping-bag`} />
-          </svg> */}
-          {/* {show} */}
-          {show && (
-            <div className="Nav__header--trolley">
-              <svg>
-                <use xlinkHref={`Sprite.svg#icon-shopping-bag`} />
-              </svg>
-              <p>Your Shopping Cart is Empty</p>
-            </div>
-          )}
+        <ShoppingBag onClick={() => setIsCartOpenMobile((prev) => !prev)}/>
+          
+        {isCartOpenMobile && <CartModal />}
         </div>
       </div>
       <div className="Nav__offer">

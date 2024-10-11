@@ -19,9 +19,6 @@ const AddQuantity: React.FC<AddQuantityProps> = ({ product, selectedSize, select
 
   // quantity of the product
   const stockNumber = product.quantity
-
-  console.log("ASDSFSD", selectedSize)
-  console.log("DDAASEDCFR", selectedColor)
  
 
   const {addItem} = useCart()
@@ -45,8 +42,6 @@ const AddQuantity: React.FC<AddQuantityProps> = ({ product, selectedSize, select
     setIsLoading(true);
 
     try {
-      console.log(":::::", selectedColor)
-      console.log("@@@@@@", product.categoryId)
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_API_URL}/products?colorId=${selectedColor}&sizeId=${selectedSize}&categoryId=${product.categoryId}`, 
         {
@@ -62,15 +57,13 @@ const AddQuantity: React.FC<AddQuantityProps> = ({ product, selectedSize, select
       }
 
       const fetchedProduct = await response.json();
-      console.log("sdasd", fetchedProduct)
 
-      // Assuming that the API response has the product details
-      // addItem({
-      //   ...fetchedProduct,
-      //   size: selectedSize,
-      //   color: selectedColor,
-      //   quantity,
-      // });
+      addItem({
+        ...fetchedProduct[0],
+        size: selectedSize,
+        color: selectedColor,
+        quantity,
+      });
     } catch (err) {
       setError('An error occurred while adding the product to your bag.');
     } finally {
@@ -78,17 +71,6 @@ const AddQuantity: React.FC<AddQuantityProps> = ({ product, selectedSize, select
     }
   };
 
-  // const handleAddToBag = () => {
-  //   if (!selectedSize || !selectedColor) {
-  //     setError('Please select both size and color.');
-  //     return;
-  //   }
-
-  //   setError(null); // Clear error if both are selected
-  //   //TODO: check the product first
-
-  //   addItem({ ...product, size: selectedSize, color: selectedColor, quantity });
-  // };
   return (
     <div className="flex flex-col gap-4">
     <h4 className="font-medium">Choose a Quantity</h4>
