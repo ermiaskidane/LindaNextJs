@@ -91,7 +91,7 @@ const Navigation = () => {
             className="svg--bag cursor-pointer self-center"
             onClick={() => setIsCartOpen((prev) => !prev)}
             >
-              <ShoppingBag />
+              <ShoppingBag  className="p-2 text-white bg-[#0084c1fb] rounded-full"/>
           </div>
           {isCartOpen && <CartModal />}
         </div>
@@ -209,7 +209,7 @@ const Navigation = () => {
           </div>
         </div>
         <div className="Nav__header--bag">
-        <ShoppingBag onClick={() => setIsCartOpenMobile((prev) => !prev)}/>
+        <ShoppingBag className="p-1 text-[#0084c1fb] bg-[#0084c1fb] rounded-full" onClick={() => setIsCartOpenMobile((prev) => !prev)}/>
           
         {isCartOpenMobile && <CartModal />}
         </div>

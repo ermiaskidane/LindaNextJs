@@ -58,6 +58,9 @@ const AddQuantity: React.FC<AddQuantityProps> = ({ product, selectedSize, select
 
       const fetchedProduct = await response.json();
 
+      console.log("dsdsd", fetchedProduct)
+
+      // overRide the color and size so users can get his/her choosen product
       addItem({
         ...fetchedProduct[0],
         size: selectedSize,

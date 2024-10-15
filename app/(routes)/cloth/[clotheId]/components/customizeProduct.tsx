@@ -100,13 +100,13 @@ const CustomizeProduct: React.FC<CustomizeProductProps> = ({
       </div>
 
       {/* Product Title and Description */}
-      <h1 className="text-2xl font-bold mt-4">Womens Pro 365 3 Inch Short</h1>
-      <p className="text-gray-600">Iron Grey / White</p>
+      <h1 className="text-2xl font-bold mt-4">{product.name}</h1>
+      <p className="text-gray-600">{product.name.slice(0, 5)} / {product.color.name}</p>
 
       {/* Pricing Information */}
       <div className="mt-4">
-        <span className="text-2xl font-bold">£22.99</span>
-        <span className="ml-2 text-gray-500 line-through">RRP £27.99</span>
+        <span className="text-2xl font-bold">£{product.price}</span>
+        <span className="ml-2 text-gray-500 line-through">RRP £270.99</span>
       </div>
 
       {/* Size Selection */}

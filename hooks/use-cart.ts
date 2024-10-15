@@ -28,21 +28,17 @@ export interface Product {
 
 interface CartStore {
   items:  typeof Data;
+  isLoading: boolean;
   addItem: (data:  typeof Data[0]) => void;
   removeItem: (id: string, sizeId: string) => void;  
   removeAll: () => void;
 }
 
-// interface CartStore {
-//   items:  Product[];
-//   addItem: (data:  Product) => void;
-//   removeItem: (id: string, sizeId: string) => void;  
-//   removeAll: () => void;
-// }
 
 const useCart = create(
   persist<CartStore>((set, get) => ({
     items: [],
+    isLoading: true,
     addItem: (data: typeof Data[0]) => {
       const currentItems = get().items;
       const existingItem = currentItems.find((item) => item.id === data.id && item.sizeId === data.sizeId);
@@ -56,12 +52,12 @@ const useCart = create(
       // set({ items: [...get().items, data] });
       // toast.success('Item added to cart.');
 
-      set({ items: [...currentItems, data] });
+      set({ items: [...currentItems, data], isLoading: false });
       toast.success('Item added to cart.');
     },
     // Takes an additional sizeId argument to remove the correct size variant of the item from the cart.
     removeItem: (id: string, sizeId: string) => {
-      set({ items: get().items.filter((item) => !(item.id === id && item.sizeId === sizeId)) });
+      set({ items: get().items.filter((item) => !(item.id === id && item.sizeId === sizeId)), isLoading: false });
       toast.success('Item removed from cart.');
     },
     removeAll: () => set({ items: [] }),

@@ -59,7 +59,7 @@ const Card: React.FC<CardProps>  = ({products, paddingBottom}) => {
                 </span>
               ))}
           </div>
-          <p className="font-bold mt-1 ">${product.price}</p>
+          <p className="font-bold mt-1 ">£{product.price}</p>
           <button className="border text-gray-800  text-xs md:text-sm px-4 py-1 mt-2 hover:bg-light-blue-1 hover:text-white transition-colors duration-300">ADD TO CART</button>
        </div>
        </div>
