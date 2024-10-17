@@ -2,11 +2,8 @@
 
 import useCart from "@/hooks/use-cart";
 import Currency from "@/lib/currency";
+import axios from "axios";
 import Image from "next/image";
-// import { useCartStore } from "@/hooks/useCartStore";
-// import { media as wixMedia } from "@wix/sdk";
-// import { useWixClient } from "@/hooks/useWixClient";
-// import { currentCart } from "@wix/ecom";
 
 const CartModal = () => {
   // TEMPORARY
@@ -24,30 +21,19 @@ const CartModal = () => {
 
   console.log("dsd", items)
 
-  // const handleCheckout = async () => {
-  //   try {
-  //     const checkout =
-  //     // of all the 12 enum channels we go with "WEB"(https://dev.wix.com/docs/sdk/backend-modules/ecom/current-cart/create-checkout-from-current-cart)
-  //       await wixClient.currentCart.createCheckoutFromCurrentCart({
-  //         channelType: currentCart.ChannelType.WEB,
-  //       });
+  const onCheckout = async () => {
+    const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/checkout`, {
+      cartProducts: items.map((item) => ({
+        id: item.id,
+        quantity: item.quantity,  // Include quantity of each item
+      }))
+    });
 
-  //     const { redirectSession } =
-  //       await wixClient.redirects.createRedirectSession({
-  //         ecomCheckout: { checkoutId: checkout.checkoutId },
-  //         callbacks: {
-  //           postFlowUrl: window.location.origin,
-  //           thankYouPageUrl: `${window.location.origin}/success`,
-  //         },
-  //       });
+    // console.log("££££££££££", response.data)
+    // console.log("aaaaaaaaaaaaaaaaaaa", response.data.url)
 
-  //     if (redirectSession?.fullUrl) {
-  //       window.location.href = redirectSession.fullUrl;
-  //     }
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
+    window.location = response.data.url;
+  }
 
   return (
     <div className="w-max absolute p-4 rounded-md shadow-[0_3px_10px_rgb(0,0,0,0.2)] bg-white top-12 md:top-16 right-0 flex flex-col gap-6 z-20">
@@ -124,8 +110,8 @@ const CartModal = () => {
               </button>
               <button
                 className="rounded-md py-3 px-4 bg-black text-white disabled:cursor-not-allowed disabled:opacity-75"
-                // disabled={isLoading}
-                // onClick={handleCheckout}
+                disabled={isLoading}
+                onClick={onCheckout}
               >
                 Checkout
               </button>
