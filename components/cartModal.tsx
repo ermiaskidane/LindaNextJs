@@ -14,7 +14,7 @@ const CartModal = () => {
   const {items, removeItem, isLoading} = useCart()
 
   const totalPrice = items.reduce((total, item) => {
-    return total + Number(item.price)
+    return total + Number(item.price)*item.quantity
   }, 0);
 
   console.log("dfds", totalPrice)
