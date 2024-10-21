@@ -31,13 +31,13 @@ interface ListClothesProps {
     priceId_min: string;
     sizeId: string;
     styleId: string;
+    canceledPayment: string;
   }
 }
 
 const ListClothes: React.FC<ListClothesProps>  = async({searchParams}) => {
 
   console.log("dddd", searchParams)
-  const user = auth()
 
   // const productss = await getProducts({ isFeatured: true });
   const filtrated = await filterData();
