@@ -29,12 +29,12 @@ const Cloth = async({
 
   // console.log("><><><><><", colors)
   // console.log("~~@~@~@~@~@~@~@", sizes)
-  // console.log(">>>>>>>", category)
+  console.log(">>>>>>>", category)
 
   return (
     <div className="px-4 mx-auto py-8">
       <ProductDeatil product={productsss} category={category} colors={colors} sizes={sizes}/>
-      <Recommend/>
+      <Recommend product={category}/>
       <div className="py-4">
         <h1 className="font-bold py-2 text-2xl ">User Reviews</h1>
         <Suspense fallback="Loading...">
