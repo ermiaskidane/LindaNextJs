@@ -1,5 +1,6 @@
 import { Image, Product } from "@prisma/client";
 import Card from "./card";
+import ChatGPTCarousel from "./scrollCard";
 
 const Image1 = [
   "/images/fashion-1.jpg",
@@ -50,7 +51,8 @@ const Menu = async({products}: MenuProps) => {
             </ul>
           </div>
           {/*##### about the menu__newProduct--options ######*/}
-          <Card products={products.slice(0, 4)}/>
+          {/* <Card products={products.slice(0, 4)}/> */}
+          <ChatGPTCarousel />
           {/*##### about the menu__newProduct--options ######*/}
         </div>
         <div className="menu__content--bestSellers">

@@ -1,6 +1,7 @@
 import { db } from "@/lib/db";
 import Blog from "../blog";
 import Menu from "../menu";
+import Image from "next/image";
 
 const Product = async () => {
 
@@ -43,7 +44,7 @@ const Product = async () => {
           <div className="product__testimonial--content">
             <div className="testimonial__details">
               <div className="testimonial--img">
-                <img src="/images/person-1.jpg" alt="testimonial" />
+                <Image src="/images/person-1.jpg" alt="testimonial" width={100} height={100}/>
               </div>
               <div className="testimonial--para">
                 <p>

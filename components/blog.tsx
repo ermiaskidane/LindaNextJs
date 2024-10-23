@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const Blog = () => {
   return ( 
     <div className="blog">
@@ -8,7 +10,7 @@ const Blog = () => {
         <div className="blog__recent--content">
           <article className="blog__recent--one">
             <figure className="blog__recent--img1">
-              <img src="/images/blog-1.jpg" alt="blogimg" />
+            <Image src="/images/blog-1.jpg" alt="ads" width={500} height={500}/>
             </figure>
             <div className="blog__recent--detail">
               <h3>Lorem maiores neque </h3>
@@ -42,7 +44,7 @@ const Blog = () => {
           </article>
           <article className="blog__recent--two">
             <figure className="blog__recent--img1">
-              <img src="/images/blog-2.jpg" alt="blogimg" />
+              <Image src="/images/blog-2.jpg" alt="ads" width={500} height={500}/>
             </figure>
             <div className="blog__recent--detail">
               <h3>Lorem maiores neque </h3>

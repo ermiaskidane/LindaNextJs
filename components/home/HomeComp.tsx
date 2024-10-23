@@ -6,11 +6,10 @@ const HomeComp = () => {
     <div className="main__shop">
       <div className="main__shop--homescreen">
         <figure className="main__shop--figure xs__left--figure1">
-          <img src="/images/tamara-bellis-9.jpg" alt="ads" />
+          <Image src="/images/tamara-bellis-9.jpg" alt="ads" width={400} height={400}/>
         </figure>
         <figure className="main__shop--figure xl__right--figure1">
-          <img src="/images/tamara-bellis-6.jpg" alt="ads" />
-
+          <Image src="/images/tamara-bellis-6.jpg" alt="ads" width={400} height={400}/>
           <figcaption>
             <h4 className="heading-secondary">Super Sale</h4>
             <h2 className="heading-primary">Season Sale</h2>
@@ -24,7 +23,7 @@ const HomeComp = () => {
         </figure>
 
         <figure className="main__shop--figure xs__left--figure2">
-          <img src="/images/download.webp" alt="ads" />
+          <Image src="/images/download.webp" alt="ads" width={200} height={200}/>
           <figcaption>
             <h3>Mega Deal</h3>
             <p>
@@ -33,13 +32,13 @@ const HomeComp = () => {
           </figcaption>
         </figure>
         <figure className="main__shop--figure xs__right--figure2">
-          <img src="/images/fashion-17.webp" alt="ads" />
+          <Image src="/images/fashion-17.webp" alt="ads" width={200} height={200}/>
         </figure>
         <figure className="main__shop--figure xs__right--figure3">
-          <img src="/images/fashion-18.webp" alt="ads" />
+          <Image src="/images/fashion-18.webp" alt="ads" width={200} height={200}/>
         </figure>
         <figure className="main__shop--figure xs__right--figure13">
-          <img src="/images/fashion-20.webp" alt="ads" />
+          <Image src="/images/fashion-20.webp" alt="ads" width={200} height={200}/>
         </figure>
       </div>
     </div>
