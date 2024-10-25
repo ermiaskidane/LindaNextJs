@@ -13,7 +13,7 @@ const Blog = () => {
             <Image src="/images/blog-1.jpg" alt="ads" width={500} height={500}/>
             </figure>
             <div className="blog__recent--detail">
-              <h3>The Digital Nomad's Guide to European Architecture </h3>
+              <h3>The Digital Nomad&apos;s Guide to European Architecture </h3>
               <div className="reader--options">
                 <span>
                   <svg>
@@ -35,7 +35,7 @@ const Blog = () => {
                 </span>
               </div>
               <p>
-              Wandering through the historic streets of Prague, I've discovered that mixing modern technology with classical surroundings creates the perfect work-life balance.
+              Wandering through the historic streets of Prague, I&apos;ve discovered that mixing modern technology with classical surroundings creates the perfect work-life balance.
               </p>
               <button type="button">Read More</button>
             </div>
@@ -67,7 +67,7 @@ const Blog = () => {
                 </span>
               </div>
               <p>
-              There's something magical about exploring coastal paths with someone special, especially when you add a vintage bicycle to the mix. 
+              There&apos;s something magical about exploring coastal paths with someone special, especially when you add a vintage bicycle to the mix. 
               </p>
               <button type="button">Read More</button>
             </div>
