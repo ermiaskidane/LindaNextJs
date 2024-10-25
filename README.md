@@ -1,11 +1,14 @@
 Linda's Shop is an e-commerce platform offering a wide variety of fashion clothing. Customers can browse and purchase different styles, from casual wear to trendy outfits, all tailored to suit every taste. With a seamless shopping experience, Linda's Shop makes it easy for fashion lovers to find the perfect look and stay stylish.
 
-
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## git tracking remove
 
 if a file has been commit and tracked before and want to remove run this command `git rm --cached  path/to/your/file` eg. components/card.tsx
+
+## prisma
+
+At the moment I utilize for authentication only all other data are fetched from the ecommerceStarterkit project built specifically for this project.
 
 <!-- ## Getting Started
 
