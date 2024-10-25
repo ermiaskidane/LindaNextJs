@@ -18,10 +18,10 @@ export async function GET(req: Request) {
 
   const data = await res.json();
 
-  console.log("dfdsgdf",data)
+  // console.log("dfdsgdf",data)
 
   // Return the response to your frontend
-  // return NextResponse.json(data);
+  return NextResponse.json(data);
 }
 
 

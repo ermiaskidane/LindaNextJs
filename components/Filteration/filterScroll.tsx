@@ -31,7 +31,7 @@ const FilterScroll = ({filter, title, valueKey}: FilterScrollProps) => {
   const selectedValue = searchParams.get(valueKey);
 
   // console.log("selectedValue", selectedValue)
-  console.log("filter", filter) 
+  // console.log("filter", filter) 
 
   const handleChange = (event: Event, newValue: number | number[]) => {
     setValue(newValue as number[]);

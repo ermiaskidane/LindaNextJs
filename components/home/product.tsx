@@ -6,11 +6,6 @@ import getProducts from "@/actions/get-products";
 
 const Product = async () => {
 
-  // const products = await db.product.findMany({
-  //   include: {
-  //     images: true
-  //   }
-  // });
   const products = await getProducts({});
   // console.log("DDDDDDD", products)
   return (

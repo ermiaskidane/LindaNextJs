@@ -15,7 +15,7 @@ const ProductReview = async({searchParams}:ProductReviewProps) => {
     orderId: searchParams.orderId,
   });
 
-  console.log("orders", orders)
+  // console.log("orders", orders)
   return (
     <div>ProductReview</div>
   )

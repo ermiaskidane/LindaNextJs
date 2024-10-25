@@ -23,7 +23,7 @@ const ThankYouPage = async ({
     orderId: searchParams.orderId
   });
 
-  console.log("sDFSfsd", Order)
+  // console.log("sDFSfsd", Order)
 
   const orderTotal = Order.orderItems.reduce((total, item) => {
     // Convert price and quantity to numbers before performing arithmetic

@@ -19,7 +19,7 @@ const ListCloth = async({ params} : {
   const sizes = await db.size.findMany();
 
   const colors = await db.color.findMany();
-  console.log("product", product) 
+  // console.log("product", product) 
   // console.log("params.clothesId", params.clothesId)
   // params.clothesId
   return (
