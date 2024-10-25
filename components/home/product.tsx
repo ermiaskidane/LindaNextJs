@@ -69,7 +69,7 @@ const Product = async () => {
         <div className="product__discount">
           <div className="product__discount--img"></div>
           <div className="discount--article">
-            <h3>Women's</h3>
+            <h3>Women&apos;s</h3>
             <div className="article--para">
               <p>
                 <span>50% off</span> on slected products

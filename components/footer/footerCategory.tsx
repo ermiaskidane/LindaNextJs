@@ -1,3 +1,6 @@
+import Image from "next/image";
+import Link from "next/link";
+
 const FooterCategory = () => {
   return ( 
     <div className="footCategory">
@@ -106,25 +109,25 @@ const FooterCategory = () => {
         <div className="footCategory__media--message">
           <ul className="media__lists">
             <li className="facebook">
-              <a href="#"></a>
+              <Link href="#"></Link>
             </li>
             <li className="Linkden">
-              <a href="#"></a>
+              <Link href="#"></Link>
             </li>
             <li className="twitter">
-              <a href="#"></a>
+              <Link href="#"></Link>
             </li>
             <li className="spotify">
-              <a href="#"></a>
+              <Link href="#"></Link>
             </li>
             <li className="pinstry">
-              <a href="#"></a>
+              <Link href="#"></Link>
             </li>
             <li className="google-plus">
-              <a href="#"></a>
+              <Link href="#"></Link>
             </li>
             <li className="youtube">
-              <a href="#"></a>
+              <Link href="#"></Link>
             </li>
           </ul>
         </div>
@@ -132,13 +135,13 @@ const FooterCategory = () => {
         <div className="footCategory__media--payment">
           <ul className="payment__lists">
             <li>
-              <img src="/images/visa.png" alt="Visa" />
+              <Image src="/images/visa.png" width={100} height={100} alt="Visa" />
             </li>
             <li>
-              <img src="/images/paypal.png" alt="paypal" />
+              <Image src="/images/paypal.png" width={100} height={100} alt="paypal" />
             </li>
             <li>
-              <img src="/images/masterCard.png" alt="masterCard" />
+              <Image src="/images/masterCard.png" width={100} height={100} alt="masterCard" />
             </li>
           </ul>
         </div>
