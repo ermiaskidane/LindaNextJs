@@ -47,7 +47,7 @@ const ProductDetail: React.FC<ProductDeatilProps>  = ({
     <div className="flex flex-col md:flex-row gap-8">
       {/* Thumbnails on the left */}
       <div className="hidden md:flex flex-col mt-4 gap-1 overflow-x-auto">
-        {product.images.map((image: any, index) => (
+        {product.images.map((image: any, index: number) => (
           <div key={index} className="relative p-1">
             <Image
               src={image.url}
@@ -70,7 +70,7 @@ const ProductDetail: React.FC<ProductDeatilProps>  = ({
             className="flex transition-transform duration-500 ease-in-out"
             style={{ transform: `translateX(-${currentImageIndex * 100}%)` }} // Sliding based on index
           >
-            {product.images.map((image, index) => (
+            {product.images.map((image: any, index: number) => (
               <div key={index} className="min-w-full">
                 <Image
                   src={image.url}
@@ -98,7 +98,7 @@ const ProductDetail: React.FC<ProductDeatilProps>  = ({
 
         {/* Mobile Thumbnails */}
         <div className="flex mt-4 gap-2 p-1 overflow-x-auto md:hidden">
-          {product.images.map((image, index) => (
+          {product.images.map((image: any, index: number) => (
             <Image
               key={index}
               src={image.url}
