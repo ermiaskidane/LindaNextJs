@@ -59,7 +59,7 @@ export async function PATCH(
 
     const UserAdmin = await db.user.findFirst({
       where: {
-        id: session.user?.id,
+        // id: session.user?.id,
       }
     })
 

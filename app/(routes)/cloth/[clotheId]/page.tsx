@@ -27,10 +27,6 @@ const Cloth = async({
   const colors = await getColors()
   const sizes = await getSizes()
 
-  // console.log("><><><><><", colors)
-  // console.log("~~@~@~@~@~@~@~@", sizes)
-  console.log(">>>>>>>", category)
-
   return (
     <div className="px-4 mx-auto py-8">
       <ProductDeatil product={productsss} category={category} colors={colors} sizes={sizes}/>

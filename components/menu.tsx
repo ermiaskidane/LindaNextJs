@@ -52,7 +52,7 @@ const Menu = async({products}: MenuProps) => {
           </div>
           {/*##### about the menu__newProduct--options ######*/}
           {/* <Card products={products.slice(0, 4)}/> */}
-          <ChatGPTCarousel />
+          <ChatGPTCarousel products={products.slice(0, 4)} arrow={true}/>
           {/*##### about the menu__newProduct--options ######*/}
         </div>
         <div className="menu__content--bestSellers">

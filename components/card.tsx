@@ -65,7 +65,7 @@ const Card: React.FC<CardProps>  = ({products, paddingBottom}) => {
             <Button size="xs" className="border bg-transparent text-gray-800  text-xs md:text-sm  mt-2 hover:bg-light-blue-1 hover:text-white transition-colors duration-300">ADD TO CART</Button>
           </Link>
        </div>
-       </div>
+        </div>
       ))}
     </div>
    );

@@ -2,14 +2,17 @@ import { db } from "@/lib/db";
 import Blog from "../blog";
 import Menu from "../menu";
 import Image from "next/image";
+import getProducts from "@/actions/get-products";
 
 const Product = async () => {
 
-  const products = await db.product.findMany({
-    include: {
-      images: true
-    }
-  });
+  // const products = await db.product.findMany({
+  //   include: {
+  //     images: true
+  //   }
+  // });
+  const products = await getProducts({});
+  console.log("DDDDDDD", products)
   return (
     <div className="main__product">
       <div className="main__product--left">

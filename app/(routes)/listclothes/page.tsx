@@ -37,8 +37,6 @@ interface ListClothesProps {
 
 const ListClothes: React.FC<ListClothesProps>  = async({searchParams}) => {
 
-  console.log("dddd", searchParams)
-
   // const productss = await getProducts({ isFeatured: true });
   const filtrated = await filterData();
   //  console.log("@@@@@@@@@@@@@@@", filtrated)
@@ -49,7 +47,6 @@ const ListClothes: React.FC<ListClothesProps>  = async({searchParams}) => {
     min_price: searchParams.priceId_min,
     max_price: searchParams.priceId_max
   });
-  // console.log("@@@@@@@@@@@@@@@", products)
 
   // const products = await db.product.findMany({
   //   include: {
