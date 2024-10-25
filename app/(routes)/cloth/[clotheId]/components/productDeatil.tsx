@@ -47,7 +47,7 @@ const ProductDetail: React.FC<ProductDeatilProps>  = ({
     <div className="flex flex-col md:flex-row gap-8">
       {/* Thumbnails on the left */}
       <div className="hidden md:flex flex-col mt-4 gap-1 overflow-x-auto">
-        {product.images.map((image, index) => (
+        {product.images.map((image: any, index) => (
           <div key={index} className="relative p-1">
             <Image
               src={image.url}
