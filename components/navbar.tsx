@@ -42,11 +42,6 @@ const Navigation = () => {
           <SignedIn>
             <UserButton />
           </SignedIn>
-        {/* {user ? (
-            <UserButton/>
-          ): (
-            <User onClick={storeModal.onOpen}/>
-          )} */}
         </div>
       </div>
 
@@ -62,7 +57,7 @@ const Navigation = () => {
           />
           <button type="submit">
             <svg>
-              <use xlinkHref={`Sprite.svg#icon-magnifying-glass`} />
+              <use xlinkHref={`/sprite.svg#icon-magnifying-glass`} />
             </svg>
           </button>
         </form>
@@ -79,12 +74,6 @@ const Navigation = () => {
           <SignedIn>
             <UserButton />
           </SignedIn>
-          {/* {user ? (
-            <UserButton/>
-          ): (
-            <User onClick={storeModal.onOpen} />
-            // <User onClick={() => router.push('/authmy-auto/login')}/>
-          )} */}
           </div>
 
           <div 
@@ -104,7 +93,7 @@ const Navigation = () => {
          >
           <h3>
             <svg>
-              <use xlinkHref={`Sprite.svg#icon-menu`} />
+              <use xlinkHref={`/sprite.svg#icon-menu`} />
             </svg>
             <span>ALL CATEGORIES</span>
           </h3>
@@ -117,51 +106,51 @@ const Navigation = () => {
             <li className="Nav__detail--home">
               <Link href="/">
                 <svg className="svg--icon">
-                  <use xlinkHref={`Sprite.svg#icon-home`} />
+                  <use xlinkHref={`/sprite.svg#icon-home`} />
                 </svg>
                 <span className="categories">Home</span>
                 <svg>
-                  <use xlinkHref={`Sprite.svg#icon-chevron-small-right`} />
+                  <use xlinkHref={`/sprite.svg#icon-chevron-small-right`} />
                 </svg>
               </Link>
             </li>
             <li className="Nav__detail--home">
               <Link href="/listclothes">
                 <svg className="svg--icon">
-                  <use xlinkHref={`Sprite.svg#icon-gift`} />
+                  <use xlinkHref={`/sprite.svg#icon-gift`} />
                 </svg>
                 <span className="categories">Dresses</span>
                 <svg>
-                  <use xlinkHref={`Sprite.svg#icon-chevron-small-right`} />
+                  <use xlinkHref={`/sprite.svg#icon-chevron-small-right`} />
                 </svg>
               </Link>
             </li>
             <li className="Nav__detail--home">
               <Link href="/">
                 <svg className="svg--icon">
-                  <use xlinkHref={`Sprite.svg#icon-suitcase`} />
+                  <use xlinkHref={`/sprite.svg#icon-suitcase`} />
                 </svg>
                 <span className="categories">Tops</span>
                 <svg>
-                  <use xlinkHref={`Sprite.svg#icon-chevron-small-right`} />
+                  <use xlinkHref={`/sprite.svg#icon-chevron-small-right`} />
                 </svg>
               </Link>
             </li>
             <li className="Nav__detail--home">
               <Link href="/">
                 <svg className="svg--icon">
-                  <use xlinkHref={`Sprite.svg#icon-camera`} />
+                  <use xlinkHref={`/sprite.svg#icon-camera`} />
                 </svg>
                 <span className="categories">ETHINIC WEAR</span>
                 <svg>
-                  <use xlinkHref={`Sprite.svg#icon-chevron-small-right`} />
+                  <use xlinkHref={`/sprite.svg#icon-chevron-small-right`} />
                 </svg>
               </Link>
             </li>
             <li className="Nav__detail--home">
               <Link href="/">
                 <svg className="svg--icon">
-                  <use xlinkHref={`Sprite.svg#icon-bed`} />
+                  <use xlinkHref={`/sprite.svg#icon-bed`} />
                 </svg>
                 <span className="categories">Party Wear</span>
               </Link>
@@ -169,7 +158,7 @@ const Navigation = () => {
             <li className="Nav__detail--home">
               <Link href="/">
                 <svg className="svg--icon">
-                  <use xlinkHref={`Sprite.svg#icon-child`} />
+                  <use xlinkHref={`/sprite.svg#icon-child`} />
                 </svg>
                 <span className="categories">Wester wear</span>
               </Link>
@@ -177,7 +166,7 @@ const Navigation = () => {
             <li className="Nav__detail--home">
               <Link href="/blog">
                 <svg className="svg--icon">
-                  <use xlinkHref={`Sprite.svg#icon-bubbles2`} />
+                  <use xlinkHref={`/sprite.svg#icon-bubbles2`} />
                 </svg>
                 <span className="categories">Blog</span>
               </Link>

@@ -80,7 +80,7 @@ const FooterCategory = () => {
             <li>
               <div>
                 <svg>
-                  <use xlinkHref={`Sprite.svg#icon-location-pin`} />
+                  <use xlinkHref={`/sprite.svg#icon-location-pin`} />
                 </svg>
               </div>
 
@@ -89,7 +89,7 @@ const FooterCategory = () => {
             <li>
               <div>
                 <svg>
-                  <use xlinkHref={`Sprite.svg#icon-phone`} />
+                  <use xlinkHref={`/sprite.svg#icon-phone`} />
                 </svg>
               </div>
               <span>+12345054</span>
@@ -97,7 +97,7 @@ const FooterCategory = () => {
             <li>
               <div>
                 <svg>
-                  <use xlinkHref={`Sprite.svg#icon-mail`} />
+                  <use xlinkHref={`/sprite.svg#icon-mail`} />
                 </svg>
               </div>
               <span>abc@exmaple.com</span>

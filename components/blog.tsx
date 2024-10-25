@@ -13,31 +13,29 @@ const Blog = () => {
             <Image src="/images/blog-1.jpg" alt="ads" width={500} height={500}/>
             </figure>
             <div className="blog__recent--detail">
-              <h3>Lorem maiores neque </h3>
+              <h3>The Digital Nomad's Guide to European Architecture </h3>
               <div className="reader--options">
                 <span>
                   <svg>
-                    <use xlinkHref={`Sprite.svg#icon-user`} />
+                    <use xlinkHref={`/sprite.svg#icon-user`} />
                   </svg>
                   posted by admin
                 </span>
                 <span>
                   <svg>
-                    <use xlinkHref={`Sprite.svg#icon-bubbles2`} />
+                    <use xlinkHref={`/sprite.svg#icon-bubbles2`} />
                   </svg>
                   0 comments
                 </span>
                 <span>
                   <svg>
-                    <use xlinkHref={`Sprite.svg#icon-clock`} />
+                    <use xlinkHref={`/sprite.svg#icon-clock`} />
                   </svg>
-                  May 1, 2020
+                  May 1, 2024
                 </span>
               </div>
               <p>
-                facere amet consectetur adipisicing elit. Vero tempora
-                voluptatum nobis quaerat cumque asperiores at veritatis, nostrum
-                blanditiis !
+              Wandering through the historic streets of Prague, I've discovered that mixing modern technology with classical surroundings creates the perfect work-life balance.
               </p>
               <button type="button">Read More</button>
             </div>
@@ -47,31 +45,29 @@ const Blog = () => {
               <Image src="/images/blog-2.jpg" alt="ads" width={500} height={500}/>
             </figure>
             <div className="blog__recent--detail">
-              <h3>Lorem maiores neque </h3>
+              <h3>Coastal Escapes: Finding Romance on Two Wheels </h3>
               <div className="reader--options">
                 <span>
                   <svg>
-                    <use xlinkHref={`Sprite.svg#icon-user`} />
+                    <use xlinkHref={`/sprite.svg#icon-user`} />
                   </svg>
                   posted by admin
                 </span>
                 <span>
                   <svg>
-                    <use xlinkHref={`Sprite.svg#icon-bubbles2`} />
+                    <use xlinkHref={`/sprite.svg#icon-bubbles2`} />
                   </svg>
                   1 comments
                 </span>
                 <span>
                   <svg>
-                    <use xlinkHref={`Sprite.svg#icon-clock`} />
+                    <use xlinkHref={`/sprite.svg#icon-clock`} />
                   </svg>
-                  May 1, 2020
+                  May 1, 2024
                 </span>
               </div>
               <p>
-                facere amet consectetur adipisicing elit. Vero tempora
-                voluptatum nobis quaerat cumque asperiores at veritatis, nostrum
-                blanditiis !
+              There's something magical about exploring coastal paths with someone special, especially when you add a vintage bicycle to the mix. 
               </p>
               <button type="button">Read More</button>
             </div>

@@ -44,13 +44,13 @@ const Menu = async({products}: MenuProps) => {
             <div className="bestSellers--arrow">
               <span>
                 <svg>
-                  <use xlinkHref={`Sprite.svg#icon-chevron-thin-left`} />
+                  <use xlinkHref={`/sprite.svg#icon-chevron-thin-left`} />
                 </svg>
               </span>
               <span>||</span>
               <span>
                 <svg>
-                  <use xlinkHref={`Sprite.svg#icon-chevron-thin-right`} />
+                  <use xlinkHref={`/sprite.svg#icon-chevron-thin-right`} />
                 </svg>
               </span>
             </div>
@@ -65,13 +65,13 @@ const Menu = async({products}: MenuProps) => {
             <div className="featuredProducts--arrow">
               <span>
                 <svg>
-                  <use xlinkHref={`Sprite.svg#icon-chevron-thin-left`} />
+                  <use xlinkHref={`/sprite.svg#icon-chevron-thin-left`} />
                 </svg>
               </span>
               <span>||</span>
               <span>
                 <svg>
-                  <use xlinkHref={`Sprite.svg#icon-chevron-thin-right`} />
+                  <use xlinkHref={`/sprite.svg#icon-chevron-thin-right`} />
                 </svg>
               </span>
             </div>
