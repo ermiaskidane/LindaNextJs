@@ -1,28 +1,28 @@
-// // import { auth } from "@/auth";
-// import { db } from "@/lib/db";
-// import { NextResponse } from "next/server";
+// import { auth } from "@/auth";
+import { db } from "@/lib/db";
+import { NextResponse } from "next/server";
 
-// export async function GET(req: Request) {
-//   // Forward the request to your backend API
-//   const apiUrl = `${process.env.NEXT_PUBLIC_API_URL}/products`;
+export async function GET(req: Request) {
+  // Forward the request to your backend API
+  const apiUrl = `${process.env.NEXT_PUBLIC_API_URL}/products`;
 
-//   const res = await fetch(apiUrl, {
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//   });
+  const res = await fetch(apiUrl, {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
 
-//   if (!res.ok) {
-//     return NextResponse.error(); // Handle error
-//   }
+  if (!res.ok) {
+    return NextResponse.error(); // Handle error
+  }
 
-//   const data = await res.json();
+  const data = await res.json();
 
-//   console.log("dfdsgdf",data)
+  console.log("dfdsgdf",data)
 
-//   // Return the response to your frontend
-//   // return NextResponse.json(data);
-// }
+  // Return the response to your frontend
+  // return NextResponse.json(data);
+}
 
 
 // export async function POST(
