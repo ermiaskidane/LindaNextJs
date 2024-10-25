@@ -1,12 +1,13 @@
 import { Heart, Truck } from 'lucide-react';
 import React, { useMemo, useState } from 'react';
 import AddQuantity from './addQuantity';
+import { Category, Color, Product, Products, Size } from '@/types';
 
 interface CustomizeProductProps {
-  product: any;
-  category: any[];
-  colors: any[];
-  sizes: any[];
+  product: Product;
+  category: Products[];
+  colors: Color[];
+  sizes: Size[];
 }
 
 const CustomizeProduct: React.FC<CustomizeProductProps> = ({

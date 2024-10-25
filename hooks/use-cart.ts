@@ -2,6 +2,7 @@ import { create } from "zustand";
 import { toast } from 'react-hot-toast';
 import { persist, createJSONStorage } from "zustand/middleware";
 import { data as Data} from "@/lib/data";
+import { Products } from "@/types";
 // import { CartProduct } from "@/type";
 
 export interface Product {
@@ -27,9 +28,9 @@ export interface Product {
 }
 
 interface CartStore {
-  items:  typeof Data;
+  items:  Products[];
   isLoading: boolean;
-  addItem: (data:  typeof Data[0]) => void;
+  addItem: (data:  Products) => void;
   removeItem: (id: string, sizeId: string) => void;  
   removeAll: () => void;
 }
@@ -39,7 +40,7 @@ const useCart = create(
   persist<CartStore>((set, get) => ({
     items: [],
     isLoading: true,
-    addItem: (data: typeof Data[0]) => {
+    addItem: (data: Products) => {
       const currentItems = get().items;
       const existingItem = currentItems.find((item) => item.id === data.id && item.sizeId === data.sizeId);
 

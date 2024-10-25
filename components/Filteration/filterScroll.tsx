@@ -5,15 +5,11 @@
 import qs from "query-string";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { brand, categories, color, size } from "@/lib/data";
 import { useState } from "react";
-import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 import { useRouter, useSearchParams } from "next/navigation";
 import { Check } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Separator } from "../ui/separator";
-// import { Slider, Switch } from 'antd';
 
 interface FilterScrollProps {
   title: string;

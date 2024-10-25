@@ -1,12 +1,11 @@
 import getProducts from '@/actions/get-products';
 import useCart from '@/hooks/use-cart';
-// import { data } from '@/lib/data';
+import { Products } from '@/types';
 import { ShoppingBag } from 'lucide-react';
 import React, {useState} from 'react'
 
 interface AddQuantityProps {
-  // product: typeof data[0];
-  product: any;
+  product: Products;
   selectedSize: string | null;
   selectedColor: string | null;
 }

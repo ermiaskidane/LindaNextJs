@@ -1,13 +1,24 @@
 export interface Product {
   id: string;
+  storeId: string;
+  categoryId: string;
   category: Category;
   name: string;
   price: string;
+  quantity: number;
   isFeatured: boolean;
   size: Size;
+  sizeId: string;
   color: Color;
+  colorId: string;
   images: Image[]
 };
+
+export interface Products extends Product {
+  category: Category;
+  size: Size;
+  color: Color;
+}
  
 export interface Image {
   id: string;

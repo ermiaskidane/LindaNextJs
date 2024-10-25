@@ -4,13 +4,13 @@ import React, { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import CustomizeProduct from "./customizeProduct";
-import { data } from "@/lib/data";
+import { Category, Color, Products, Size } from "@/types";
 
 interface ProductDeatilProps {
-  product: typeof data[0];
-  category: any[];
-  colors: any[]
-  sizes: any[]
+  product: Products;
+  category: Category[];
+  colors: Color[]
+  sizes: Size[]
 }
 
 const ProductDetail: React.FC<ProductDeatilProps>  = ({
@@ -47,7 +47,7 @@ const ProductDetail: React.FC<ProductDeatilProps>  = ({
     <div className="flex flex-col md:flex-row gap-8">
       {/* Thumbnails on the left */}
       <div className="hidden md:flex flex-col mt-4 gap-1 overflow-x-auto">
-        {product.images.map((image, index) => (
+        {product.images.map((image: any, index) => (
           <div key={index} className="relative p-1">
             <Image
               src={image.url}
