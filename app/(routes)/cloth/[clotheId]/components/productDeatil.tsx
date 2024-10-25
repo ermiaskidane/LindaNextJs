@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import CustomizeProduct from "./customizeProduct";
+<<<<<<< HEAD
 import { Category, Color, Products, Size } from "@/types";
 
 interface ProductDeatilProps {
@@ -11,6 +12,15 @@ interface ProductDeatilProps {
   category: Category[];
   colors: Color[]
   sizes: Size[]
+=======
+// import { data } from "@/lib/data";
+
+interface ProductDeatilProps {
+  product: any;
+  category: any[];
+  colors: any[]
+  sizes: any[]
+>>>>>>> 9fb16b10400daa87c75557d8358eb48bdbb23004
 }
 
 const ProductDetail: React.FC<ProductDeatilProps>  = ({
@@ -47,7 +57,11 @@ const ProductDetail: React.FC<ProductDeatilProps>  = ({
     <div className="flex flex-col md:flex-row gap-8">
       {/* Thumbnails on the left */}
       <div className="hidden md:flex flex-col mt-4 gap-1 overflow-x-auto">
+<<<<<<< HEAD
         {product.images.map((image: any, index) => (
+=======
+        {product.images.map((image: any, index: number) => (
+>>>>>>> 9fb16b10400daa87c75557d8358eb48bdbb23004
           <div key={index} className="relative p-1">
             <Image
               src={image.url}
@@ -70,7 +84,7 @@ const ProductDetail: React.FC<ProductDeatilProps>  = ({
             className="flex transition-transform duration-500 ease-in-out"
             style={{ transform: `translateX(-${currentImageIndex * 100}%)` }} // Sliding based on index
           >
-            {product.images.map((image, index) => (
+            {product.images.map((image: any, index: number) => (
               <div key={index} className="min-w-full">
                 <Image
                   src={image.url}
@@ -98,7 +112,7 @@ const ProductDetail: React.FC<ProductDeatilProps>  = ({
 
         {/* Mobile Thumbnails */}
         <div className="flex mt-4 gap-2 p-1 overflow-x-auto md:hidden">
-          {product.images.map((image, index) => (
+          {product.images.map((image: any, index: number) => (
             <Image
               key={index}
               src={image.url}
