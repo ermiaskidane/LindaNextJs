@@ -12,7 +12,7 @@ const Product = async () => {
   //   }
   // });
   const products = await getProducts({});
-  console.log("DDDDDDD", products)
+  // console.log("DDDDDDD", products)
   return (
     <div className="main__product">
       <div className="main__product--left">

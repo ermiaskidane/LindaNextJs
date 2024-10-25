@@ -7,8 +7,9 @@ import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useRef } from 'react'
 import { Button } from "./ui/button"
+import { Products } from "@/types"
 
-export default function ChatGPTCarousel({products, arrow}: {products: any, arrow: boolean}) {
+export default function ChatGPTCarousel({products, arrow}: {products: Products[], arrow: boolean}) {
   const carouselRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {

@@ -7,21 +7,6 @@ import getProducts from "@/actions/get-products";
 import { filterData } from "@/lib/filterData";
 import FilterDropDown from "@/components/Filteration/filterDropDown";
 
-// const Image1 = [
-//   "/images/fashion-1.jpg",
-//   "/images/fashion-3.jpg",
-//   "/images/fashion-4.jpg",
-//   "/images/fashion-9.webp",
-//   "/images/fashion-3.jpg",
-//   "/images/fashion-6.jpg",
-//   "/images/fashion-9.webp",
-//   "/images/fashion-10.webp",
-//   "/images/fashion-14.webp",
-//   "/images/fashion-5.jpg",
-//   "/images/fashion-9.webp",
-//   "/images/fashion-4.jpg"
-// ]
-
 interface ListClothesProps {
   searchParams: {
     brandId: string;
@@ -36,8 +21,6 @@ interface ListClothesProps {
 }
 
 const ListClothes: React.FC<ListClothesProps>  = async({searchParams}) => {
-
-  // const productss = await getProducts({ isFeatured: true });
   const filtrated = await filterData();
   //  console.log("@@@@@@@@@@@@@@@", filtrated)
   const products = await getProducts({ 
@@ -48,12 +31,7 @@ const ListClothes: React.FC<ListClothesProps>  = async({searchParams}) => {
     max_price: searchParams.priceId_max
   });
 
-  // const products = await db.product.findMany({
-  //   include: {
-  //     images: true
-  //   }
-  // });
-  
+  // console.log("ffffffff", products)
   return (
     <div className="flex flex-col">
       <div className="flex mt-2">

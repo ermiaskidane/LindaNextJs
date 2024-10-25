@@ -1,29 +1,10 @@
 import { Image, Product } from "@prisma/client";
 import Card from "./card";
 import ChatGPTCarousel from "./scrollCard";
-
-const Image1 = [
-  "/images/fashion-1.jpg",
-  "/images/fashion-3.jpg",
-  "/images/fashion-4.jpg",
-  "/images/fashion-9.webp"
-]
-
-const Image2 = [
-  "/images/fashion-3.jpg",
-  "/images/fashion-6.jpg",
-  "/images/fashion-9.webp",
-  "/images/fashion-10.webp"
-]
-const Image3 = [
-  "/images/fashion-14.webp",
-  "/images/fashion-5.jpg",
-  "/images/fashion-9.webp",
-  "/images/fashion-4.jpg"
-]
+import { Products } from "@/types";
 
 interface MenuProps {
-  products: (Product & { images: Image[] })[]
+  products: Products[]
 }
 
 const Menu = async({products}: MenuProps) => {

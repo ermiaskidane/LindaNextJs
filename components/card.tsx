@@ -6,10 +6,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Button } from "./ui/button";
+import { Products } from "@/types";
 
 
 interface CardProps {
-  products: (Product & { images: Images[] })[]
+  products: Products[]
   paddingBottom?: boolean
 }
 
