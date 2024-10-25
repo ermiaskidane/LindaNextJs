@@ -1,7 +1,6 @@
 import { create } from "zustand";
 import { toast } from 'react-hot-toast';
 import { persist, createJSONStorage } from "zustand/middleware";
-import { data as Data} from "@/lib/data";
 import { Products } from "@/types";
 // import { CartProduct } from "@/type";
 
