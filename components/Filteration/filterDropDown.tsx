@@ -58,35 +58,7 @@ const FilterDropDown: React.FC<FilterProps> = ({
             <FilterScroll valueKey="priceId" title="Price"/>
           </div>
         </div>
-          {/* ##########################################################
-                      this the demo data
-            ################################################### */}
-        {/* <div className="grid gap-2 py-1 font-medium">
-          <div className="grid">
-            <FilterScroll filter={categories} valueKey="categoryId" title="Category"/>
-          </div>
-          <div className="grid">
-            <FilterScroll filter={size} valueKey="sizeId" title="Size"/>
-          </div>
-          <div className="grid">
-            <FilterScroll filter={color} valueKey="colorId" title="Color"/>
-          </div>
-          <div className="grid">
-            <FilterScroll filter={categories} valueKey="styleId" title="Style"/>
-          </div>
-          <div className="grid">
-            <FilterScroll filter={brand}  valueKey="brandId" title="Brand"/>
-          </div>
-          <div className="grid">
-            <FilterScroll valueKey="priceId" title="Price"/>
-          </div>
-        </div> */}
         </ScrollArea>
-        {/* <SheetFooter>
-          <SheetClose asChild>
-            <Button type="submit">Save changes</Button>
-          </SheetClose>
-        </SheetFooter> */}
       </SheetContent>
     </Sheet>
   );
