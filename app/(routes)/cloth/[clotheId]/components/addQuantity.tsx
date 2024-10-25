@@ -5,7 +5,7 @@ import { ShoppingBag } from 'lucide-react';
 import React, {useState} from 'react'
 
 interface AddQuantityProps {
-  product: typeof data[0];
+  product: any;
   selectedSize: string | null;
   selectedColor: string | null;
 }
