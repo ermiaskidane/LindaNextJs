@@ -88,17 +88,17 @@ export default function ChatGPTCarousel({products, arrow}: {products: Products[]
                     <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <button className="bg-white text-blue-500 p-2 rounded-full hover:bg-light-blue-1 hover:text-white transition-colors duration-700">
                           <svg className=" w-5 h-5 hover:fill-white">
-                            <use xlinkHref={`Sprite.svg#icon-circle-with-plus`} />
+                            <use xlinkHref={`/sprite.svg#icon-circle-with-plus`} />
                           </svg>
                         </button>
                         <button className="bg-white text-blue-500 p-2 rounded-full hover:bg-light-blue-1 hover:text-white transition-colors duration-700">
                           <svg className=" w-5 h-5 hover:fill-white">
-                            <use xlinkHref={`Sprite.svg#icon-heart`} />
+                            <use xlinkHref={`/sprite.svg#icon-heart`} />
                           </svg>
                         </button>
                         <button className="bg-white text-blue-500 p-2 rounded-full hover:bg-light-blue-1 hover:text-white transition-colors duration-700">
                           <svg className=" w-5 h-5 hover:fill-white">
-                            <use xlinkHref={`Sprite.svg#icon-star`} />
+                            <use xlinkHref={`/sprite.svg#icon-star`} />
                           </svg>
                         </button>
                     </div>
@@ -110,7 +110,7 @@ export default function ChatGPTCarousel({products, arrow}: {products: Products[]
                       {[...Array(5)].map((_, i) => (
                         <span key={i}>
                           <svg className=" w-4 h-4 fill-slate-300">
-                            <use xlinkHref="Sprite.svg#icon-star" />
+                            <use xlinkHref="/sprite.svg#icon-star" />
                           </svg>
                         </span>
                       ))}

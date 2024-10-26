@@ -11,7 +11,7 @@ const SideBar = ({openHandler}: ModalProps) => {
     id="navi-toggle"
     >
     <li className="Nav__detail--home">
-      <Link href="#">
+      <Link href="/">
         <svg>
           <use xlinkHref={`Sprite.svg#icon-home`} />
         </svg>
@@ -22,7 +22,7 @@ const SideBar = ({openHandler}: ModalProps) => {
       </Link>
     </li>
     <li className="Nav__detail--home">
-      <Link href="#">
+      <Link href="/listclothes">
         <svg>
           <use xlinkHref={`Sprite.svg#icon-gift`} />
         </svg>
@@ -33,7 +33,7 @@ const SideBar = ({openHandler}: ModalProps) => {
       </Link>
     </li>
     <li className="Nav__detail--home">
-      <Link href="#">
+      <Link href="/">
         <svg>
           <use xlinkHref={`Sprite.svg#icon-suitcase`} />
         </svg>
@@ -44,7 +44,7 @@ const SideBar = ({openHandler}: ModalProps) => {
       </Link>
     </li>
     <li className="Nav__detail--home">
-      <Link href="#">
+      <Link href="/">
         <svg>
           <use xlinkHref={`Sprite.svg#icon-camera`} />
         </svg>
@@ -55,7 +55,7 @@ const SideBar = ({openHandler}: ModalProps) => {
       </Link>
     </li>
     <li className="Nav__detail--home">
-      <Link href="#">
+      <Link href="/">
         <svg>
           <use xlinkHref={`Sprite.svg#icon-bed`} />
         </svg>
@@ -63,7 +63,7 @@ const SideBar = ({openHandler}: ModalProps) => {
       </Link>
     </li>
     <li className="Nav__detail--home">
-      <Link href="#">
+      <Link href="/">
         <svg>
           <use xlinkHref={`Sprite.svg#icon-child`} />
         </svg>
@@ -71,7 +71,7 @@ const SideBar = ({openHandler}: ModalProps) => {
       </Link>
     </li>
     <li className="Nav__detail--home">
-      <Link href="#">
+      <Link href="/">
         <svg>
           <use xlinkHref={`Sprite.svg#icon-bubbles2`} />
         </svg>
