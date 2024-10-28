@@ -5,6 +5,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import CustomizeProduct from "./customizeProduct";
 import { Category, Color, Products, Size } from "@/types";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 interface ProductDeatilProps {
   product: Products;
@@ -66,6 +67,7 @@ const ProductDetail: React.FC<ProductDeatilProps>  = ({
       {/* Main Image with sliding effect */}
       <div className="md:w-2/3">
         <div className="relative overflow-hidden "> 
+        <AspectRatio ratio={13 / 16} >
           <div
             className="flex transition-transform duration-500 ease-in-out"
             style={{ transform: `translateX(-${currentImageIndex * 100}%)` }} // Sliding based on index
@@ -82,19 +84,20 @@ const ProductDetail: React.FC<ProductDeatilProps>  = ({
               </div>
             ))}
           </div>
-          <button
-            className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white rounded-full p-2"
-            onClick={handlePrevClick}
-          >
-            <ChevronLeft className="w-6 h-6" />
-          </button>
-          <button
-            className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white rounded-full p-2"
-            onClick={handleNextClick}
-          >
-            <ChevronRight className="w-6 h-6" />
-          </button>
-        </div>
+        </AspectRatio>
+        <button
+          className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white rounded-full p-2"
+          onClick={handlePrevClick}
+        >
+          <ChevronLeft className="w-6 h-6" />
+        </button>
+        <button
+          className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white rounded-full p-2"
+          onClick={handleNextClick}
+        >
+          <ChevronRight className="w-6 h-6" />
+        </button>
+      </div>
 
         {/* Mobile Thumbnails */}
         <div className="flex mt-4 gap-2 p-1 overflow-x-auto md:hidden">

@@ -14,11 +14,14 @@ import {
 } from '@clerk/nextjs'
 import { useRouter } from "next/navigation";
 import CartModal from "./cartModal";
+import useCart from "@/hooks/use-cart";
 
 const Navigation = () => {
   const [open, setOpen] = useState(false)
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isCartOpenMobile, setIsCartOpenMobile] = useState(false);
+
+  const cart = useCart()
 
   // we can call this cz the auth is from next-auth/react for client component
   // const user = useCurrentUser();
@@ -77,10 +80,15 @@ const Navigation = () => {
           </div>
 
           <div 
-            className="svg--bag cursor-pointer self-center"
+            className="svg--bag cursor-pointer self-center relative"
             onClick={() => setIsCartOpen((prev) => !prev)}
             >
               <ShoppingBag  className="p-2 text-white bg-[#0084c1fb] rounded-full"/>
+            {cart.items.length !== 0 && (
+              <span className=" absolute -top-2 left-3 text-base text-center font-bold align-middle rounded-full !w-6 h-6 bg-red-500 text-green-400">
+                {cart.items.length}
+              </span>
+            )}
           </div>
           {isCartOpen && <CartModal />}
         </div>
@@ -197,9 +205,13 @@ const Navigation = () => {
             <h3>instagram LindaShop</h3>
           </div>
         </div>
-        <div className="Nav__header--bag">
+        <div className="Nav__header--bag relative ">
         <ShoppingBag className="p-1 text-[#0084c1fb] bg-[#0084c1fb] rounded-full" onClick={() => setIsCartOpenMobile((prev) => !prev)}/>
-          
+          {cart.items.length !== 0 && (
+            <span className=" absolute -top-2 left-3 text-sm text-center align-middle rounded-full w-5 h-5 bg-red-500 text-green-400">
+              {cart.items.length}
+            </span>
+          )}
         {isCartOpenMobile && <CartModal />}
         </div>
       </div>
