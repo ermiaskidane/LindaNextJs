@@ -2,6 +2,7 @@
 
 import useCart from "@/hooks/use-cart";
 import Currency from "@/lib/currency";
+import { cn } from "@/lib/utils";
 import axios from "axios";
 import Image from "next/image";
 
@@ -109,8 +110,8 @@ const CartModal = () => {
                 View Cart
               </button>
               <button
-                className="rounded-md py-3 px-4 bg-black text-white disabled:cursor-not-allowed disabled:opacity-75"
-                disabled={isLoading}
+                className={cn("rounded-md py-3 px-4 text-white disabled:cursor-not-allowed disabled:opacity-75", items.length === 0 ? "bg-slate-500" : "bg-black")}
+                disabled={isLoading || items.length === 0}
                 onClick={onCheckout}
               >
                 Checkout
