@@ -26,6 +26,9 @@ import React, { useState } from 'react'
 import { Star } from 'lucide-react'
 import { Order, OrderItem, Products } from "@/types";
 import Image from "next/image";
+import axios from "axios";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 const FormSchema = z.object({
   productId: z.string({
@@ -38,8 +41,8 @@ const FormSchema = z.object({
     message: "Please enter a valid email address.",
   }),
   rating: z.number().min(1).max(5),
-  review: z.string().min(10, {
-    message: "Review must be at least 10 characters.",
+  comment: z.string().min(10, {
+    message: "Comment must be at least 10 characters.",
   }),
 })
 
@@ -53,6 +56,7 @@ interface ReviewFormProps {
 
 const ReviewForm: React.FC<ReviewFormProps> = ({searchParams, orders}) => {
   const [selectedProduct, setSelectedProduct] = useState<OrderItem | null>(null)
+  const [loading, setLoading] = useState(false);
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -60,16 +64,26 @@ const ReviewForm: React.FC<ReviewFormProps> = ({searchParams, orders}) => {
       username: "",
       email: searchParams.email || "",
       rating: 0,
-      review: "",
+      comment: "",
     },
   })
 
-  const onSubmit = (data: z.infer<typeof FormSchema>) => {
-    console.log(data)
-    // Handle form submission here
-  }
+  const router = useRouter();
 
-  console.log("sfsdfsdf", selectedProduct)
+  const onSubmit = async(data: z.infer<typeof FormSchema>) => {
+    try {
+      setLoading(true);
+      await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/review`, data)
+      router.refresh()
+      router.push(`/listclothes`);
+      toast.success("review has been created");
+    } catch (error) {
+      toast.error('Something went wrong.');
+    } finally {
+      setLoading(false);
+    }
+  }
+  
   return (
     <>
       <Form {...form}>
@@ -191,10 +205,10 @@ const ReviewForm: React.FC<ReviewFormProps> = ({searchParams, orders}) => {
             />
             <FormField
               control={form.control}
-              name="review"
+              name="comment"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Review</FormLabel>
+                  <FormLabel>Comment</FormLabel>
                   <FormControl>
                     <Textarea
                       placeholder="Tell us what you think about the product"
@@ -209,7 +223,7 @@ const ReviewForm: React.FC<ReviewFormProps> = ({searchParams, orders}) => {
                 </FormItem>
               )}
             />
-            <Button type="submit" className="w-full">Submit Review</Button>
+            <Button disabled={loading} type="submit" className="w-full">Submit Review</Button>
           </form>
         </Form>
     </>

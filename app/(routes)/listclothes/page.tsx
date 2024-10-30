@@ -31,7 +31,7 @@ const ListClothes: React.FC<ListClothesProps>  = async({searchParams}) => {
     max_price: searchParams.priceId_max
   });
 
-  // console.log("ffffffff", products)
+  console.log("ffffffff", products)
   return (
     <div className="flex flex-col">
       <div className="flex mt-2">
