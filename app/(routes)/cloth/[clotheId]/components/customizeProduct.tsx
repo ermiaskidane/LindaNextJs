@@ -1,7 +1,7 @@
 import { Heart, Truck } from 'lucide-react';
 import React, { useMemo, useState } from 'react';
 import AddQuantity from './addQuantity';
-import { Category, Color, Product, Products, Review, Size } from '@/types';
+import { Color, Product, Products, Review, Size } from '@/types';
 
 interface CustomizeProductProps {
   product: Product & { reviews: Review[]};

@@ -1,6 +1,6 @@
 import Image from 'next/image'
-import { cookies } from 'next/headers'
-import { notFound, redirect } from 'next/navigation'
+// import { cookies } from 'next/headers'
+// import { notFound, redirect } from 'next/navigation'
 import Link from 'next/link'
 import PurchasedProduct from './components/purchased-product'
 import TotalPrice from './components/totalPrice'

@@ -1,8 +1,6 @@
 import SortDropDown from "@/components/Filteration/sortDropDown";
 import Card from "@/components/card";
 import { Separator } from "@/components/ui/separator";
-import Link from "next/link";
-import { auth } from "@clerk/nextjs/server";
 import getProducts from "@/actions/get-products";
 import { filterData } from "@/lib/filterData";
 import FilterDropDown from "@/components/Filteration/filterDropDown";

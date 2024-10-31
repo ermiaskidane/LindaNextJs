@@ -1,6 +1,6 @@
 import getProducts from '@/actions/get-products';
 import useCart from '@/hooks/use-cart';
-import { Product, Products, Review } from '@/types';
+import { Product, Review } from '@/types';
 import { ShoppingBag } from 'lucide-react';
 import React, {useState} from 'react'
 

@@ -1,6 +1,5 @@
 "use clients"; 
 import React from 'react'
-import { Card, CardContent } from "@/components/ui/card"
 import {
   Carousel,
   CarouselContent,
@@ -9,7 +8,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel"
 import Image from 'next/image';
-import { Category, Product } from '@/types';
+import { Product } from '@/types';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 

@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import CustomizeProduct from "./customizeProduct";
-import { Category, Color, Products, Size } from "@/types";
+import { Color, Products, Size } from "@/types";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 interface ProductDeatilProps {

@@ -9,7 +9,6 @@ type BackdropHookElement = HTMLDivElement | null;
 
 const Backdrop = ({open}: BackdropProps ) => {
 
-  console.log("open", open)
   const backdropHookElement = document.getElementById("backdrop-hook") as BackdropHookElement;
 
   if (!backdropHookElement) {

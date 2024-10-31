@@ -24,7 +24,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import React, { useState } from 'react'
 import { Star } from 'lucide-react'
-import { Order, OrderItem, Products } from "@/types";
+import { Order, OrderItem } from "@/types";
 import Image from "next/image";
 import axios from "axios";
 import toast from "react-hot-toast";

@@ -1,4 +1,3 @@
-import { Image, Product } from "@prisma/client";
 import Card from "./card";
 import ChatGPTCarousel from "./scrollCard";
 import { Products } from "@/types";

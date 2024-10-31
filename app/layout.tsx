@@ -2,16 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import {
   ClerkProvider,
-  SignInButton,
-  SignedIn,
-  SignedOut,
-  UserButton
 } from '@clerk/nextjs'
-// import { Poppins } from 'next/font/google'
 import "./globals.css";
-import Navigation from "@/components/navbar";
-import Footer from "@/components/footer/footer";
-import Head from "next/head";
 import { ToasterProvider } from "@/providers/toast-provider";
 
 const inter = Inter({ subsets: ["latin"] });

@@ -7,20 +7,11 @@ import axios from "axios";
 import Image from "next/image";
 
 const CartModal = () => {
-  // TEMPORARY
-  // const cartItems = true;
-
-  // const wixClient = useWixClient();
-  // const { cart, isLoading, removeItem } = useCartStore();
   const {items, removeItem, isLoading} = useCart()
 
   const totalPrice = items.reduce((total, item) => {
     return total + Number(item.price)*item.quantity
   }, 0);
-
-  console.log("dfds", totalPrice)
-
-  console.log("dsd", items)
 
   const onCheckout = async () => {
     const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/checkout`, {
@@ -30,8 +21,6 @@ const CartModal = () => {
       }))
     });
 
-    // console.log("££££££££££", response.data)
-    // console.log("aaaaaaaaaaaaaaaaaaa", response.data.url)
 
     window.location = response.data.url;
   }

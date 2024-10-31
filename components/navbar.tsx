@@ -5,7 +5,7 @@ import SideBar from "./sidebar";
 import Backdrop from "./backdrop";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { ShoppingBag, User } from "lucide-react";
+import { ShoppingBag } from "lucide-react";
 import {
   SignInButton,
   SignedIn,
