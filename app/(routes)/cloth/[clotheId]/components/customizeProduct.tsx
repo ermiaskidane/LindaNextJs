@@ -1,10 +1,10 @@
 import { Heart, Truck } from 'lucide-react';
 import React, { useMemo, useState } from 'react';
 import AddQuantity from './addQuantity';
-import { Category, Color, Product, Products, Size } from '@/types';
+import { Category, Color, Product, Products, Review, Size } from '@/types';
 
 interface CustomizeProductProps {
-  product: Product;
+  product: Product & { reviews: Review[]};
   category: Products[];
   colors: Color[];
   sizes: Size[];
@@ -93,7 +93,7 @@ const CustomizeProduct: React.FC<CustomizeProductProps> = ({
       {/* Header with Logo and Heart Icon */}
       <div className="flex justify-between items-center">
         <img
-          src="https://utfs.io/f/bea20373-2165-45c9-99a7-0990dd87d37e-5z4hwj.jpg"
+          src={product.images[0].url}
           alt="Nike logo"
           className="h-6"
         />

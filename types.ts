@@ -18,6 +18,7 @@ export interface Products extends Product {
   category: Category;
   size: Size;
   color: Color;
+  reviews: Review[];
 }
  
 export interface Image {
@@ -64,3 +65,11 @@ export interface OrderItem {
   productId: string;
   product: Product
 }
+
+export interface Review {
+  id: string;
+  name: string;
+  email: string;
+  rating: number;
+  comment: string
+};

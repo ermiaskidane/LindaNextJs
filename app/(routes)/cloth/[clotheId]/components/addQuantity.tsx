@@ -1,11 +1,11 @@
 import getProducts from '@/actions/get-products';
 import useCart from '@/hooks/use-cart';
-import { Products } from '@/types';
+import { Product, Products, Review } from '@/types';
 import { ShoppingBag } from 'lucide-react';
 import React, {useState} from 'react'
 
 interface AddQuantityProps {
-  product: Products;
+  product: Product & { reviews: Review[]};
   selectedSize: string | null;
   selectedColor: string | null;
 }

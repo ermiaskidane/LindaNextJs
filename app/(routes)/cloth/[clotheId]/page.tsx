@@ -14,14 +14,14 @@ const Cloth = async({
   params: { clotheId: string}
 }) => {
 
-  const productsss = await getProduct(params.clotheId);
-  // console.log("@@@@@@@@@@@@@@@@@", productsss)
+  const product = await getProduct(params.clotheId);
+  console.log("@@@@@@@@@@@@@@@@@", product)
 
 
   // Note  that get the category of the selected product so it can list 
   // the size and color of the same category
   const category = await getProducts({
-    categoryId: productsss.categoryId
+    categoryId: product.categoryId
   })
 
   const colors = await getColors()
@@ -29,12 +29,13 @@ const Cloth = async({
 
   return (
     <div className="px-4 mx-auto py-8">
-      <ProductDeatil product={productsss} category={category} colors={colors} sizes={sizes}/>
+      <ProductDeatil product={product} category={category} colors={colors} sizes={sizes}/>
       <Recommend product={category}/>
-      <div className="py-4">
-        <h1 className="font-bold py-2 text-2xl ">User Reviews</h1>
+      <div className="py-5">
+        <h1 className="font-bold py-4 text-2xl ">User Reviews</h1>
         <Suspense fallback="Loading...">
-          <Reviews productId="3fb6a3c8-988b-8755-04bd-5c59ae0b18ea" />
+          {/* <Reviews productId="3fb6a3c8-988b-8755-04bd-5c59ae0b18ea" /> */}
+          <Reviews product={product} />
         </Suspense>
       </div>
     </div>
