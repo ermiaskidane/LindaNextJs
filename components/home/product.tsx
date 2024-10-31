@@ -1,4 +1,3 @@
-import { db } from "@/lib/db";
 import Blog from "../blog";
 import Menu from "../menu";
 import Image from "next/image";
