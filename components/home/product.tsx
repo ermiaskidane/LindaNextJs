@@ -3,6 +3,8 @@ import Menu from "../menu";
 import Image from "next/image";
 import getProducts from "@/actions/get-products";
 
+export const revalidate = 60; // Revalidate this route every 60 seconds
+
 const Product = async () => {
 
   const products = await getProducts({});

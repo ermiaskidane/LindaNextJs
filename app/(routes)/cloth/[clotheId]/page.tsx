@@ -8,6 +8,8 @@ import getProducts from "@/actions/get-products";
 import getColors from "@/actions/get-colors";
 import getSizes from "@/actions/get-sizes";
 
+export const revalidate = 60;
+
 const Cloth = async({
   params
 }: {

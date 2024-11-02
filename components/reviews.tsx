@@ -4,10 +4,10 @@
 import { Product, Review } from "@/types";
 import { User } from "lucide-react";
 import Image from "next/image";
-
+ 
 const Reviews = async ({ product }: { product: Product & { reviews: Review[]}}) => {
 
-  if (product.reviews.length === 0) {
+  if (!product.reviews || product.reviews.length === 0) {
     return <h1>There is no review for this product.</h1>
   }
   return product.reviews.map((review: any) => (
